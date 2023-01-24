@@ -10,6 +10,8 @@ export const TextInputHidden = styled.TextInput`
     border-width: 1px;
     border-radius: 5px;
     padding: 15px;
+    position: absolute;
+    opacity: 0;
     `;
 
 export const SplitOtpBoxesContainer = styled.Pressable`
@@ -26,7 +28,13 @@ export const SplitBoxes = styled.View`
     min-width: 50px;
 `;
 
+export const SplitBoxesFocused = styled(SplitBoxes) `
+    border-color: yellow;
+    background-color: grey;
+`
+
 export const SplitBoxText = styled.Text`
     font-size: 20px;
     color: #e5e5e5;
+    align-self: center;
 `;
