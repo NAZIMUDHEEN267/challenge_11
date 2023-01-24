@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import Register from './src/Screens/Register';
 import AppTour from './src/Screens/AppTour';
-import Otp from './src/Screens/Otp';
+import Otp from './src/Screens/OTP';
 import stateContext from './src/data/Context';
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
       schlText, setSchlText,
       stdntText, setStdntText
     }}>
-      <Register />
+      {/* <Register /> */}
+      <Otp />
     </stateContext.Provider>
     )
 }

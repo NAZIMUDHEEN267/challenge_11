@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import BottomSheet from '../Components/BottomSheet';
-import bgImage from "../Assets/google.png";
 import Words from '../Components/Words';
 import stateContext from '../data/Context';
+import BgImg from '../Components/BgImg';
 
 export class Register extends Component {
     static contextType = stateContext;
 
     render() {
         return (
-            <ImageBackground source={bgImage} resizeMode={'center'}>
+            <BgImg>
                 {/* text */}
                 <Words
                     main="Enter your mobile number"
                     sub="We'll send you an OTP for verify"
                 />
-                
+
                 {/* bottom sheet */}
                 <BottomSheet>
                     <View style={styles.mobile}>
@@ -29,7 +29,7 @@ export class Register extends Component {
                         <Text style={styles.btnText}>Continue</Text>
                     </TouchableOpacity>
                 </BottomSheet>
-            </ImageBackground>
+            </BgImg>
         )
     }
 }

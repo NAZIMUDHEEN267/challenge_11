@@ -16,7 +16,7 @@ export class Words extends Component {
 
   render() {
     return (
-      <View style={{position: "absolute", left: width / 4, top: this.context.regText}}>
+      <View style={{position: "absolute", left: width / 4, top: this.props.regText}}>
         <Text style={[styles.bold, styles.text]}>{this.main}</Text>
         <Text style={[styles.light, styles.text]}>{this.sub}</Text>
       </View>
