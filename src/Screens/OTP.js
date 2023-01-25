@@ -16,10 +16,11 @@ function Otp() {
 
     const [otpCode, setOtpCode] = useState("");
     const [isPinReady, setIsPinReady] = useState(false);
-    const maxCodeLength = 5;
+    const maxCodeLength = 6;
 
     return (
         <Pressable onPress={Keyboard.dismiss}>
+        {/* Background image component */}
             <BgImg>
                 {/* text */}
                 <Words
