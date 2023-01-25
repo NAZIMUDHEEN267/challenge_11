@@ -6,11 +6,12 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from "react-native";
-import BottomSheet from '../Components/BottomSheet';
-import BgImg from '../Components/BgImg';
-import Words from '../Components/Words';
-import OTPInput from '../Components/OTP/OtpInput';
+import BottomSheet from '../../Components/BottomSheet';
+import BgImg from '../../Components/BgImg';
+import Words from '../../Components/Words';
+import OTPInput from './OtpInput';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { ButtonContainer, ButtonText } from '../../Components/Button';
 
 function Otp() {
 
@@ -35,9 +36,9 @@ function Otp() {
                         maximumLength={maxCodeLength}
                         setIsPinReady={setIsPinReady}
                     />
-                    <TouchableOpacity style={[styles.Button, { backgroundColor: isPinReady ? "#00C458" : "#0a360f" }]} disabled={!isPinReady}>
-                        <Text style={styles.ButtonText}>Resend OTP</Text>
-                    </TouchableOpacity>
+                    <ButtonContainer style={{ backgroundColor: isPinReady ? "#00C458" : "#0a360f" }} disabled={!isPinReady}>
+                        <ButtonText>Resend OTP</ButtonText>
+                    </ButtonContainer>
 
                     <TouchableOpacity style={styles.contact} onPress={() => alert("Thanks for contacting...")}>
                         <Icon name='phone' size={20} color={'#00C458'} />
@@ -51,19 +52,6 @@ function Otp() {
 }
 
 const styles = StyleSheet.create({
-    Button: {
-        width: "100%",
-        padding: 17,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 30,
-        borderRadius: 8
-    },
-    ButtonText: {
-        color: "#fff",
-        fontWeight: 600,
-        fontSize: 17
-    },
     contact: {
         width: "100%",
         justifyContent: "center",
