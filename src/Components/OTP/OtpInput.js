@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { TextInput } from "react-native-gesture-handler";
 import {
     OtpInputContainer,
     TextInputHidden,
@@ -10,21 +9,25 @@ import {
 } from "./Styles";
 
 const OtpInput = ({ code, setCode, maximumLength, setIsPinReady }) => {
+    // Used for store text input details
     const inputRef = useRef();
     const [isInputBoxFocused, setIsInputBoxFocused] = useState(false);
     
+    // When user tap on the text boxes this function will occurred
     const handleOnPress = () => {
         setIsInputBoxFocused(true);
         inputRef.current.focus();
-        console.log("handle: " + isInputBoxFocused);
     }
     
+    // When focus out this function will called
     const handleOnBlur = () => {
         setIsInputBoxFocused(false);
     };
 
+    // Used for iteration through "code" (string storage for numeric values)
     const boxArray = new Array(maximumLength).fill(0);
     
+    // hook
     useEffect(() => {
         setIsPinReady(code.length === maximumLength);
 
@@ -35,25 +38,19 @@ const OtpInput = ({ code, setCode, maximumLength, setIsPinReady }) => {
     
     
     const boxDigit = (_, index) => {
-        const emptyInput = "";
 
-        const digit = code[index] || emptyInput;
-        
-        const isCurrentValue = index === code.length;
-        const isLastValue = index === maximumLength - 1;
-        const isCodeComplete = code.length === maximumLength;
-        if(index === maximumLength - 1) console.log("hello");
-        
-        const isValueFocused = isCurrentValue || (isLastValue && isCodeComplete);
-        const StyledSplitBoxes = isInputBoxFocused && isValueFocused ? SplitBoxesFocused : SplitBoxes; 
-        console.log("input: "+isInputBoxFocused, isValueFocused);
+        const digit = code[index] || "";
+
+        const isOnFocus = index === code.length - 1;
+        const StyledSplitBox = (isOnFocus && isInputBoxFocused) ? SplitBoxesFocused : SplitBoxes;
         
         return (
-            <StyledSplitBoxes key={index}>
+            <StyledSplitBox key={index}>
                 <SplitBoxText>{digit}</SplitBoxText>
-            </StyledSplitBoxes>
+            </StyledSplitBox>
         )
     }
+
     return (
         <OtpInputContainer>
             <SplitOtpBoxesContainer onPress={handleOnPress}>

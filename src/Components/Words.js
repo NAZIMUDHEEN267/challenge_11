@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { StyleSheet, Dimensions, Text, View } from 'react-native';
-import Context from "../data/Context";
 
 const { width } = Dimensions.get("window");
 
@@ -9,14 +8,12 @@ export class Words extends Component {
     super(props);
 
     this.main = this.props.main;
-    this.sub = this.props.sub;
+    this.sub = this.props.sub || "";
   }
-
-  static contextType = Context;
 
   render() {
     return (
-      <View style={{position: "absolute", left: width / 4, top: this.props.regText}}>
+      <View style={{position: "absolute",  top: "30%", width: "100%"}}>
         <Text style={[styles.bold, styles.text]}>{this.main}</Text>
         <Text style={[styles.light, styles.text]}>{this.sub}</Text>
       </View>
@@ -34,6 +31,9 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "500",
     color: "#999"
+  },
+  text: {
+    textAlign: "center"
   }
 })
 

@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import React, { Component } from 'react';
-import stateContext from "../data/Context"
 
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -12,17 +11,10 @@ export class BottomSheet extends Component {
             value: 0
         }
     }
-
-    static contextType = stateContext;
-
-    componentDidUpdate() {
-        const value = (SCREEN_HEIGHT - this.state.value * 2.5) 
-        this.context.setRegText(value)
-    }
-
+    
     render() {
         return (
-            <View style={{ height: SCREEN_HEIGHT, width: "100%" }}>
+            <View style={{ height: SCREEN_HEIGHT, width: SCREEN_WIDTH }}>
                 <View style={[styles.bottomSheetContainer, { bottom: (this.state.value - SCREEN_HEIGHT) + 100 }]}>
                     {/* top line */}
                     <Text style={styles.line}>hello</Text>

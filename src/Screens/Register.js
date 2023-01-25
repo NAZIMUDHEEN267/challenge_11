@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import { ImageBackground, StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import BottomSheet from '../Components/BottomSheet';
 import Words from '../Components/Words';
-import stateContext from '../data/Context';
 import BgImg from '../Components/BgImg';
 
 export class Register extends Component {
-    static contextType = stateContext;
 
     render() {
         return (
