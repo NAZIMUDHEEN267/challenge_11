@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Words from '../Components/Words'
 import { ButtonContainer, ButtonText } from '../Components/Button';
 
-const SchoolBoard = () => {
+const SchoolBoard = ({navigation: {navigate}}) => {
 
   const Board = ["CBSC", "STATES", "ICSC"];
   const Class = [8, 9, 10, 11, 12];
@@ -60,7 +60,7 @@ const SchoolBoard = () => {
         />
 
         {/* button container */}
-        <ButtonContainer>
+        <ButtonContainer onPress={() => navigate("Share")}>
           <ButtonText>Continue</ButtonText>
         </ButtonContainer>
       </BottomSheet>

@@ -8,7 +8,7 @@ import { ButtonContainer, ButtonText } from '../Components/Button';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const StudentDetails = () => {
+const StudentDetails = ({navigation: {navigate}}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pin, setPin] = useState("");
@@ -68,7 +68,7 @@ const StudentDetails = () => {
                     />
 
                     {/* button */}
-                    <ButtonContainer>
+                    <ButtonContainer onPress={() => navigate("SchoolBoard")}>
                         <ButtonText>Register</ButtonText>
                     </ButtonContainer>
                 </BottomSheet>

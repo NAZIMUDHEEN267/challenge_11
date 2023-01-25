@@ -1,19 +1,12 @@
-import { View } from 'react-native';
-import AppTour from './src/Screens/AppTour';
-import Register from './src/Screens/Register';
-import SchoolBoard from './src/Screens/SchoolBoard';
-import StudentDetails from './src/Screens/StudentDetails';
+import { NavigationContainer } from "@react-navigation/native";
+import Stack from "./src/Navigators/Stack";
 
 function App() {
   return (
-    <View>
-      {/* <Register /> */}
-      {/* <Otp /> */}
-      {/* <StudentDetails /> */}
-      {/* <SchoolBoard /> */}
-      <AppTour />
-    </View>
-    )
+   <NavigationContainer>
+      <Stack />
+   </NavigationContainer>
+  )
 }
 
 export default App

@@ -4,17 +4,18 @@ import BottomSheet from '../Components/BottomSheet';
 import Words from '../Components/Words';
 import BgImg from '../Components/BgImg';
 import { ButtonContainer, ButtonText } from '../Components/Button';
-import TextInputBox from '../Components/TextInputBox';
 
 export class Register extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             color: "grey",
             width: 0
         }
+
+        this.navigate = this.props.navigation.navigate;
     }
 
     render() {
@@ -28,10 +29,13 @@ export class Register extends Component {
 
                 {/* bottom sheet */}
                 <BottomSheet>
+                    {/* country code box */}
                     <View style={styles.mobile}>
                         <View style={styles.code}>
                             <ButtonText>+91</ButtonText>
                         </View>
+
+                        {/* Input box */}
                         <TextInput
                             keyboardType='phone-pad'
                             maxLength={10}
@@ -41,7 +45,9 @@ export class Register extends Component {
                             onFocus={() => this.setState({ width: 1, color: "#00C458" })}
                         />
                     </View>
-                    <ButtonContainer>
+
+                    {/* button */}
+                    <ButtonContainer onPress={() => this.navigate("OTP")}>
                         <ButtonText>Send OTP</ButtonText>
                     </ButtonContainer>
                 </BottomSheet>

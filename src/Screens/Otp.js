@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
     Pressable,
     Keyboard,
@@ -6,14 +7,13 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from "react-native";
-import BottomSheet from '../../Components/BottomSheet';
-import BgImg from '../../Components/BgImg';
-import Words from '../../Components/Words';
+import BottomSheet from '../Components/BottomSheet';
+import BgImg from '../Components/BgImg';
+import Words from '../Components/Words';
 import OTPInput from './OtpInput';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { ButtonContainer, ButtonText } from '../../Components/Button';
+import { ButtonContainer, ButtonText } from '../Components/Button';
 
-function Otp() {
+function Otp({ navigation: { navigate } }) {
 
     const [otpCode, setOtpCode] = useState("");
     const [isPinReady, setIsPinReady] = useState(false);
@@ -21,7 +21,7 @@ function Otp() {
 
     return (
         <Pressable onPress={Keyboard.dismiss}>
-        {/* Background image component */}
+            {/* Background image component */}
             <BgImg>
                 {/* text */}
                 <Words
@@ -36,7 +36,11 @@ function Otp() {
                         maximumLength={maxCodeLength}
                         setIsPinReady={setIsPinReady}
                     />
-                    <ButtonContainer style={{ backgroundColor: isPinReady ? "#00C458" : "#0a360f" }} disabled={!isPinReady}>
+                    <ButtonContainer style={
+                        { backgroundColor: isPinReady ? "#00C458" : "#0a360f" }}
+                        disabled={!isPinReady}
+                        onPress={() => navigate("StudentDetails")}
+                    >
                         <ButtonText>Resend OTP</ButtonText>
                     </ButtonContainer>
 

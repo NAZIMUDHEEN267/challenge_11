@@ -36,4 +36,5 @@ export const Button = styled.TouchableOpacity`
     right: 5%;
     align-items: center;
     justify-content: center;
+    border-width: .7px;
 `;

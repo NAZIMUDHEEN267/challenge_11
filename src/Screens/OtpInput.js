@@ -6,7 +6,7 @@ import {
     SplitBoxes,
     SplitBoxText,
     SplitBoxesFocused
-} from "./Styles";
+} from "./Styles/Otp";
 
 const OtpInput = ({ code, setCode, maximumLength, setIsPinReady }) => {
     // Used for store text input details
