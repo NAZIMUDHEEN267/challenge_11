@@ -1,19 +1,22 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React, { useState } from 'react'
 import BgImg from '../Components/BgImg'
 import Words from '../Components/Words'
 import BottomSheet from '../Components/BottomSheet';
 import TextInputBox from '../Components/TextInputBox';
 import { ButtonContainer, ButtonText } from '../Components/Button';
-import { DropDown, DropDownText } from "./Styles/StudentDetails";
+import SelectDropdown from 'react-native-select-dropdown';
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const StudentDetails = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    // const [name, setName] = useState("");
     const [pin, setPin] = useState("");
-
+    
+    const states = ['Kerala', 'Tamilnadu', 'Karnataka', 'Andrapradesh', 'Thelangana', 'Maharashtra', 'Madhyapradesh'];
+    const textStyle = {
+        color: "#999", fontSize: 14, textAlign: "left"
+    };
 
     return (
         <View>
@@ -35,17 +38,22 @@ const StudentDetails = () => {
                         onChangeText={setEmail}
                         placeholder={"Email"}
                         placeholderTextColor={"#999"} />
-                    <DropDown>
-                        <DropDownText>Select State</DropDownText>
-                        <Icon name="angle-down" color="#999" size={20} />
-                    </DropDown>
                     <TextInputBox
                         value={pin}
                         onChangeText={setPin}
                         placeholder={"Email"}
                         placeholderTextColor={"#999"}
                     />
-
+                    <SelectDropdown 
+                        data={states}
+                        defaultButtonText={"Select state"}
+                        dropdownStyle={{ backgroundColor: "#062E40"}}
+                        buttonStyle={{ width: "90%", backgroundColor: "#062E40", alignSelf: "center", paddingHorizontal: 20 }}
+                        buttonTextStyle={textStyle}
+                        rowTextStyle={textStyle}
+                        renderDropdownIcon={() => <Icon name="angle-down" size={20} color={"#999"}/>}
+                        dropdownIconPosition={"right"}
+                    />
                     <ButtonContainer>
                         <ButtonText>Register</ButtonText>
                     </ButtonContainer>
