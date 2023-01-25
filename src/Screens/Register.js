@@ -3,8 +3,18 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 import BottomSheet from '../Components/BottomSheet';
 import Words from '../Components/Words';
 import BgImg from '../Components/BgImg';
+import { ButtonContainer, ButtonText } from '../Components/Button';
 
 export class Register extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            color: "grey",
+            width: 0
+        }
+    }
 
     render() {
         return (
@@ -19,13 +29,20 @@ export class Register extends Component {
                 <BottomSheet>
                     <View style={styles.mobile}>
                         <View style={styles.code}>
-                            <Text style={styles.btnText}>+91</Text>
+                            <ButtonText>+91</ButtonText>
                         </View>
-                        <TextInput keyboardType='phone-pad' maxLength={10} placeholder="Mobile number" style={styles.num} placeholderTextColor="#999" />
+                        <TextInput
+                            keyboardType='phone-pad'
+                            maxLength={10}
+                            placeholder="Mobile number"
+                            style={[styles.num, { borderWidth: this.state.width, borderColor: this.state.color }]}
+                            placeholderTextColor="#999"
+                            onFocus={() => this.setState({ width: 1, color: "#00C458" })}
+                        />
                     </View>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.btnText}>Continue</Text>
-                    </TouchableOpacity>
+                    <ButtonContainer>
+                        <ButtonText>Send OTP</ButtonText>
+                    </ButtonContainer>
                 </BottomSheet>
             </BgImg>
         )
@@ -49,24 +66,11 @@ const styles = StyleSheet.create({
     },
     num: {
         height: 50,
-        width: 100,
         backgroundColor: "#062E40",
         flex: .8,
         borderRadius: 3,
         paddingLeft: 10,
-        color: "#fff"
-    },
-    button: {
-        height: 50,
-        width: "100%",
-        backgroundColor: "#00C458",
-        borderRadius: 3,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    btnText: {
-        fontWeight: "500",
-        color: "#fff"
+        color: "#fff",
     }
 })
 

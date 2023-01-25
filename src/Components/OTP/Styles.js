@@ -22,8 +22,8 @@ export const SplitOtpBoxesContainer = styled.Pressable`
 ` ;
 
 export const SplitBoxes = styled.View`
-    border-color: #6b727d;
-    border-width: 1px;
+    border-width: 2px;
+    border-color: transparent;
     border-radius: 5px;
     padding: 8px;
     min-width: 45px;
@@ -31,8 +31,7 @@ export const SplitBoxes = styled.View`
 `;
 
 export const SplitBoxesFocused = styled(SplitBoxes)`
-    border-color: #e5e5e5;
-    background-color: #07214a;
+    border-color: #00C458;
 `;
 
 export const SplitBoxText = styled.Text`

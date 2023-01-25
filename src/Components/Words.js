@@ -23,7 +23,7 @@ export class Words extends Component {
 
 const styles = StyleSheet.create({
   bold: {
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: 16,
     color: "#222"
   },
