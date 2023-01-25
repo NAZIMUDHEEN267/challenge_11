@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import Register from './src/Screens/Register';
+import SchoolBoard from './src/Screens/SchoolBoard';
 import StudentDetails from './src/Screens/StudentDetails';
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <View>
       {/* <Register /> */}
       {/* <Otp /> */}
-      <StudentDetails />
+      {/* <StudentDetails /> */}
+      <SchoolBoard />
     </View>
     )
 }

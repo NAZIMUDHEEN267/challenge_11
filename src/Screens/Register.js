@@ -4,6 +4,7 @@ import BottomSheet from '../Components/BottomSheet';
 import Words from '../Components/Words';
 import BgImg from '../Components/BgImg';
 import { ButtonContainer, ButtonText } from '../Components/Button';
+import TextInputBox from '../Components/TextInputBox';
 
 export class Register extends Component {
 

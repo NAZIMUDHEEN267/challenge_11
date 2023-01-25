@@ -12,7 +12,13 @@ const StudentDetails = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pin, setPin] = useState("");
-    
+    const [color, setColor] = useState({
+        name: "#999",
+        email: "#999",
+        pin: "#999",
+        dropDown: "#999"
+    });
+
     const states = ['Kerala', 'Tamilnadu', 'Karnataka', 'Andrapradesh', 'Thelangana', 'Maharashtra', 'Madhyapradesh'];
     const textStyle = {
         color: "#999", fontSize: 14, textAlign: "left"
@@ -24,6 +30,7 @@ const StudentDetails = () => {
                 {/* text */}
                 <Words
                     main="Student Details"
+                    sub="ksjfl"
                 />
 
                 {/* bottom sheet */}
@@ -41,18 +48,24 @@ const StudentDetails = () => {
                     <TextInputBox
                         value={pin}
                         onChangeText={setPin}
-                        placeholder={"Email"}
+                        placeholder={"Pincode"}
                         placeholderTextColor={"#999"}
                     />
-                    <SelectDropdown 
+                    <SelectDropdown
                         data={states}
                         defaultButtonText={"Select state"}
-                        dropdownStyle={{ backgroundColor: "#062E40"}}
-                        buttonStyle={{ width: "90%", backgroundColor: "#062E40", alignSelf: "center", paddingHorizontal: 20 }}
+                        dropdownStyle={{ backgroundColor: "#062E40" }}
+                        buttonStyle={{
+                            width: "90%",
+                            backgroundColor: "#062E40",
+                            alignSelf: "center",
+                            paddingHorizontal: 20,
+                        }}
                         buttonTextStyle={textStyle}
                         rowTextStyle={textStyle}
-                        renderDropdownIcon={() => <Icon name="angle-down" size={20} color={"#999"}/>}
+                        renderDropdownIcon={() => <Icon name="angle-down" size={20} color={"#999"} />}
                         dropdownIconPosition={"right"}
+                        // onFocus={() => set)}
                     />
                     <ButtonContainer>
                         <ButtonText>Register</ButtonText>
