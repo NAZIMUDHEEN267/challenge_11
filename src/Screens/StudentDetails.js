@@ -30,7 +30,6 @@ const StudentDetails = () => {
                 {/* text */}
                 <Words
                     main="Student Details"
-                    sub="ksjfl"
                 />
 
                 {/* bottom sheet */}
@@ -67,6 +66,8 @@ const StudentDetails = () => {
                         dropdownIconPosition={"right"}
                         // onFocus={() => set)}
                     />
+
+                    {/* button */}
                     <ButtonContainer>
                         <ButtonText>Register</ButtonText>
                     </ButtonContainer>

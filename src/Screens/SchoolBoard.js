@@ -3,7 +3,7 @@ import BgImg from '../Components/BgImg';
 import BottomSheet from '../Components/BottomSheet';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from "react-native-vector-icons/FontAwesome";
-import Words from '../Components/Words';
+import Words from '../Components/Words'
 import { ButtonContainer, ButtonText } from '../Components/Button';
 
 const SchoolBoard = () => {
@@ -16,13 +16,13 @@ const SchoolBoard = () => {
 
   return (
     <BgImg>
-      <BottomSheet>
-
         {/* text */}
-        <Words 
-          main="Select your school board"
+        <Words
+          main="Student Details"
         />
 
+      {/* bottom sheet */}
+      <BottomSheet>
       {/* drop downs */}
         <SelectDropdown
           data={Board}
