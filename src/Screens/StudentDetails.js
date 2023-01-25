@@ -12,12 +12,6 @@ const StudentDetails = ({navigation: {navigate}}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pin, setPin] = useState("");
-    const [color, setColor] = useState({
-        name: "#999",
-        email: "#999",
-        pin: "#999",
-        dropDown: "#999"
-    });
 
     const states = ['Kerala', 'Tamilnadu', 'Karnataka', 'Andrapradesh', 'Thelangana', 'Maharashtra', 'Madhyapradesh'];
     const textStyle = {
@@ -38,16 +32,21 @@ const StudentDetails = ({navigation: {navigate}}) => {
                         value={name}
                         onChangeText={setName}
                         placeholder={"full name"}
-                        placeholderTextColor={"#999"} />
+                        // style={{ borderColor: color.name }}
+                        placeholderTextColor={"#999"}
+                        />
                     <TextInputBox
                         value={email}
                         onChangeText={setEmail}
                         placeholder={"Email"}
-                        placeholderTextColor={"#999"} />
+                        // style={{ borderColor: color.email }}
+                        placeholderTextColor={"#999"}
+                        />
                     <TextInputBox
                         value={pin}
                         onChangeText={setPin}
                         placeholder={"Pincode"}
+                        // style={{borderColor: color.pin}}
                         placeholderTextColor={"#999"}
                     />
                     <SelectDropdown
@@ -59,12 +58,13 @@ const StudentDetails = ({navigation: {navigate}}) => {
                             backgroundColor: "#062E40",
                             alignSelf: "center",
                             paddingHorizontal: 20,
+                            // borderColor: color.dropDown,
+                            borderWidth: 1
                         }}
                         buttonTextStyle={textStyle}
                         rowTextStyle={textStyle}
                         renderDropdownIcon={() => <Icon name="angle-down" size={20} color={"#999"} />}
                         dropdownIconPosition={"right"}
-                        // onFocus={() => set)}
                     />
 
                     {/* button */}

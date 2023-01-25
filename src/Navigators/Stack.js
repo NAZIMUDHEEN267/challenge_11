@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 
 export default function StackNavigator() {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={"TitlePage"}>
+        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={"StudentDetails"}>
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="OTP" component={Otp} />
             <Stack.Screen name="StudentDetails" component={StudentDetails} />

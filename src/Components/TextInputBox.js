@@ -5,6 +5,7 @@ export default TextInputBox = styled.TextInput`
     padding: 15px;
     background-color: #062E40;
     border-radius: 3px;
+    border-width: 2px;
     padding-left: 30px;
     color: #fff;
     align-self: center;
