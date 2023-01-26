@@ -11,20 +11,23 @@ import {
     TitlePage
 } from '../Screens/AppTour';
 
-const Stack = createNativeStackNavigator();
+import BottomTab from "./BottomTab"
+
+const { Navigator, Screen } = createNativeStackNavigator();
 
 export default function StackNavigator() {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={"StudentDetails"}>
-            <Stack.Screen name="Register" component={Register}/>
-            <Stack.Screen name="OTP" component={Otp} />
-            <Stack.Screen name="StudentDetails" component={StudentDetails} />
-            <Stack.Screen name="SchoolBoard" component={SchoolBoard} />
-            <Stack.Screen name="Share" component={Share} />
-            <Stack.Screen name="Learn" component={Learn} />
-            <Stack.Screen name="Kids" component={Kids} />
-            <Stack.Screen name="Page" component={Page} />
-            <Stack.Screen name="TitlePage" component={TitlePage}/>
-        </Stack.Navigator>
+        <Navigator screenOptions={{headerShown: false}} initialRouteName={"BottomTab"}>
+            <Screen name="Register" component={Register}/>
+            <Screen name="OTP" component={Otp} />
+            <Screen name="StudentDetails" component={StudentDetails} />
+            <Screen name="SchoolBoard" component={SchoolBoard} />
+            <Screen name="Share" component={Share} />
+            <Screen name="Learn" component={Learn} />
+            <Screen name="Kids" component={Kids} />
+            <Screen name="Page" component={Page} />
+            <Screen name="TitlePage" component={TitlePage}/>
+            <Screen name="BottomTab" component={BottomTab}/>
+        </Navigator>
     )
 }
