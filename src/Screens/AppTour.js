@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react';
 import { Container, Description, Headline, Image, Button } from "./Styles/AppTour";
 import Icon from "react-native-vector-icons/AntDesign";
@@ -7,7 +6,6 @@ import LarnImg from "../Assets/Images/learn.jpg";
 import KidsImg from "../Assets/Images/kids.jpg";
 import PageImg from "../Assets/Images/fullscreen.jpg";
 import TitlePageImg from "../Assets/Images/title.jpg";
-import { color } from 'react-native-reanimated';
 
 const Share = ({ navigation: { navigate } }) => (
     <Container>
@@ -62,7 +60,8 @@ const TitlePage = ({ navigation: { navigate } }) => (
             backgroundColor: "#e5e5e5",
             elevation: 2,
             borderColor: "r#000"
-        }}>
+        }}
+            onPress={() => navigate("BottomTab")}>
             <Headline>Done</Headline>
         </Button>
     </Container>

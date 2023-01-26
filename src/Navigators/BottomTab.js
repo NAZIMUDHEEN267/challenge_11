@@ -18,7 +18,7 @@ const beforStyle = { backgroundColor: "#fff", width: "20%" } ;
 
 export default function BottomTab() {
     return (
-        <Navigator screenOptions={Object.assign(options, {lazy: true})}>
+        <Navigator screenOptions={options} initialRouteName={"Home"}>
             <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
@@ -115,5 +115,6 @@ const options = {
         height: 90,
         elevation: 5,
         paddingHorizontal: 10
-    }
+    },
+    lazy: true 
 };

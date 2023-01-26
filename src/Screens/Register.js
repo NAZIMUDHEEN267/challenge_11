@@ -59,7 +59,7 @@ export class Register extends Component {
 
                     {/* button */}
                     <ButtonContainer onPress={() => this.navigate("OTP")}
-                        disabled={!this.checkLength}>
+                        >
                         <ButtonText>Send OTP</ButtonText>
                     </ButtonContainer>
                 </BottomSheet>
