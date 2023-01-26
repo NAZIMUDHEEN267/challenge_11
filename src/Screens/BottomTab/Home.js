@@ -1,4 +1,5 @@
 import { View, Text } from 'react-native';
+import { useRef } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Fontawesome from "react-native-vector-icons/FontAwesome";
@@ -24,6 +25,8 @@ const Home = () => {
     else if (hrs > 12 && hrs < 17) return "Good after noon";
     else return "Good evening"
   };
+
+  const subArray = ["Biology", 0,"English", 0,"Maths", 0,"It", 0,"Chemist", 0,"Physics", 0,"History"];
 
   return (
     <View>
@@ -63,21 +66,37 @@ const Home = () => {
             rowTextStyle={{ color: "#fff" }}
             buttonTextStyle={{ color: "#fff", textAlign: 'left' }}
             rowStyle={{ width: "100%", backgroundColor: "#002333" }}
-            renderDropdownIcon={() => <Fontawesome name={"angle-down"} size={25} color={"#fff"}/>}
+            renderDropdownIcon={() => <Fontawesome name={"angle-down"} size={25} color={"#fff"} />}
             defaultButtonText={"Select class"}
           />
         </Section>
         {/* scrolling button section */}
         <Section>
-          <ScrollView horizontal pagingEnabled>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            snapToInterval={100}
+            decelerationRate='fast'
+            showsHorizontalScrollIndicator={false}
+          >
             {
-              ["Biology", "English", "Maths", "It", "Chemistry", "Physics", "History"]
-              .map((subject, i) => (
-                <LineBtn key={String(i)}>
-                  <Entypo name="controller-record" size={25} color="#00C458" />
-                  <BtnText>{subject}</BtnText>
-                </LineBtn>
-              ))
+                subArray
+                .map((subject, i) => {
+                  if(typeof subject === "string"){
+                    return (
+                      (
+                        <LineBtn key={String(i)}>
+                          <Entypo name="controller-record" size={25} color="#00C458" />
+                          <BtnText>{subject}</BtnText>
+                        </LineBtn>
+                      )
+                    )
+                  } else {
+                    return (
+                      <View style={{width: 20}} key={String(i)}/>
+                    )
+                  }
+                })
             }
           </ScrollView>
         </Section>
