@@ -14,6 +14,7 @@ import {
   BtnText,
   Section
 } from './Styles/Home';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Home = () => {
 
@@ -65,6 +66,20 @@ const Home = () => {
             renderDropdownIcon={() => <Fontawesome name={"angle-down"} size={25} color={"#fff"}/>}
             defaultButtonText={"Select class"}
           />
+        </Section>
+        {/* scrolling button section */}
+        <Section>
+          <ScrollView horizontal pagingEnabled>
+            {
+              ["Biology", "English", "Maths", "It", "Chemistry", "Physics", "History"]
+              .map((subject, i) => (
+                <LineBtn key={String(i)}>
+                  <Entypo name="controller-record" size={25} color="#00C458" />
+                  <BtnText>{subject}</BtnText>
+                </LineBtn>
+              ))
+            }
+          </ScrollView>
         </Section>
       </Container>
     </View>
