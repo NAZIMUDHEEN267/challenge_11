@@ -1,26 +1,109 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../Screens/BottomTab/Home";
 import AntDesing from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Fontisto from "react-native-vector-icons/Fontisto";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+import Home from "../Screens/BottomTab/Home";
+import Recents from "../Screens/BottomTab/Recents";
+import Exams from "../Screens/BottomTab/Exams";
+import Profile from "../Screens/BottomTab/Profile";
+import Contact from "../Screens/BottomTab/Contact";
+import { TabButton, TabBtnText } from "./Style/BottomTab";
 
-export default function BottomTab () {
+const { Navigator, Screen } = createBottomTabNavigator();
+const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
+const beforStyle = { backgroundColor: "#fff", width: "20%" } ;
+
+export default function BottomTab() {
     return (
-        <Navigator screenOptions={options}>
-            <Screen name="Home" component={Home} options={homeIcon}/>
-            <Screen name="H" component={Home} options={recentIcon}/>
-            <Screen name="Ho" component={Home} options={examIcon}/>
-            <Screen name="Hom" component={Home} options={profileIcon}/>
-            <Screen name="Homj" component={Home} options={contactIcon} />
+        <Navigator screenOptions={Object.assign(options, {lazy: true})}>
+            <Screen name="Home" component={Home} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Home")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <AntDesing name="home" size={20} color={"green"} />
+                                <TabBtnText>Home</TabBtnText>
+                            </>
+                        ) : (
+                            <AntDesing name="home" size={20} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
+            <Screen name="Recents" component={Recents} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Recents")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <Ionic name="play-outline" size={23} color={"green"} />
+                                <TabBtnText>Recents</TabBtnText>
+                            </>
+                        ) : (
+                            <Ionic name="play-outline" size={23} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
+            <Screen name="Exams" component={Exams} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Exams")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <Material name="book-open-page-variant-outline" size={20} color={"green"} />
+                                <TabBtnText>Exams</TabBtnText>
+                            </>
+                        ) : (
+                            <Material name="book-open-page-variant-outline" size={20} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
+            <Screen name="Profile" component={Profile} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Profile")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <FontAwesome name="user-o" size={20} color={"green"} />
+                                <TabBtnText>Profile</TabBtnText>
+                            </>
+                        ) : (
+                            <FontAwesome name="user-o" size={20} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
+            <Screen name="Contact" component={Contact} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Contact")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <Fontisto name="email" size={20} color={"green"} />
+                                <TabBtnText>Contact</TabBtnText>
+                            </>
+                        ) : (
+                            <Fontisto name="email" size={20} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
         </Navigator>
     )
 }
 
-const options = { 
+const options = {
     headerShown: false,
     tabBarShowLabel: false,
     tabBarStyle: {
@@ -30,12 +113,7 @@ const options = {
         bottom: 21,
         borderRadius: 12,
         height: 90,
-        elevation: 5
+        elevation: 5,
+        paddingHorizontal: 10
     }
-}
-
-const homeIcon = { tabBarIcon: ({ focused }) => <AntDesing name="home" size={23} />};
-const recentIcon = { tabBarIcon: () => <Ionic name="play-outline" size={23} /> };
-const examIcon = { tabBarIcon: () => <Material name="book-open-page-variant-outline" size={23} /> };
-const profileIcon = { tabBarIcon: () => <FontAwesome name="user-o" size={23} /> };
-const contactIcon = { tabBarIcon: () => <Fontisto name="email" size={23} /> };
+};
