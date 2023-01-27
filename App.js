@@ -1,10 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
-import Stack from "./src/Navigators/Stack";
+import { StackNavigator } from "./src/Navigators/Stack";
 
 function App() {
   return (
    <NavigationContainer>
-      <Stack />
+      <StackNavigator />
    </NavigationContainer>
   )
 }

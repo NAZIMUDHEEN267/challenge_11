@@ -17,7 +17,7 @@ import {
 } from './Styles/Home';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const Home = () => {
+const Home = ({navigation}) => {
 
   const timeGreeting = function () {
     const hrs = new Date().getHours;
@@ -70,37 +70,6 @@ const Home = () => {
             defaultButtonText={"Select class"}
           />
         </Section>
-        {/* scrolling button section */}
-        <Section>
-          <ScrollView
-            horizontal
-            pagingEnabled
-            snapToInterval={100}
-            decelerationRate='fast'
-            showsHorizontalScrollIndicator={false}
-            bounces
-          >
-            {
-                subArray
-                .map((subject, i) => {
-                  if(typeof subject === "string"){
-                    return (
-                      (
-                        <LineBtn key={String(i)}>
-                          <Entypo name="controller-record" size={25} color="#00C458" />
-                          <BtnText>{subject}</BtnText>
-                        </LineBtn>
-                      )
-                    )
-                  } else {
-                    return (
-                      <View style={{width: 20}} key={String(i)}/>
-                    )
-                  }
-                })
-            }
-          </ScrollView>
-        </Section>
 
         {/* scrolling video section */}
         <Section>
@@ -117,7 +86,7 @@ const Home = () => {
                   if (typeof subject === "string") {
                     return (
                       (
-                        <LineBtn key={String(i)}>
+                        <LineBtn key={String(i)} onPress={() => navigation.navigate(subject)}>
                           <Entypo name="controller-record" size={25} color="#00C458" />
                           <BtnText>{subject}</BtnText>
                         </LineBtn>
@@ -132,6 +101,9 @@ const Home = () => {
             }
           </ScrollView>
         </Section>
+
+        {/* scrolling button section */}
+
       </Container>
     </View>
   )

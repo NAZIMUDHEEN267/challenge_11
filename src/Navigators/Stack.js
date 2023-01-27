@@ -1,4 +1,4 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Registers path component
 import Register from '../Screens/Registers/Register';
 import Otp from '../Screens/Registers/Otp';
 import StudentDetails from '../Screens/Registers/StudentDetails';
@@ -11,6 +11,7 @@ import {
     TitlePage
 } from '../Screens/Registers/AppTour';
 
+import Home from "../Screens/Home/Home"; // Home based path components
 import HomeBio from "../Screens/Home/Subjects/Biology";
 import HomeEng from "../Screens/Home/Subjects/English";
 import HomeMat from "../Screens/Home/Subjects/Maths";
@@ -19,10 +20,12 @@ import HomeChem from "../Screens/Home/Subjects/Chemistry";
 import HomePhy from "../Screens/Home/Subjects/Physics";
 import HomeHis from "../Screens/Home/Subjects/History";
 
-import BottomTab from "./BottomTab"
+
+import BottomTab from "./BottomTab" // navigator component
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
+// main stack navigator
 export function StackNavigator() {
     return (
         <Navigator screenOptions={{headerShown: false}} initialRouteName={"BottomTab"}>
@@ -40,8 +43,25 @@ export function StackNavigator() {
     )
 };
 
+// home stack navigator
 export const HomeStackScreens = ({ navigation }) => (
-    <Navigator>
+    <Navigator screenOptions={{headerShown: false}}>
+        <Screen name="Home" component={Home} options={({ navigation }) => ({
+                tabBarButton: (props) => (
+                    <TabButton
+                        style={navigation.isFocused() ? afterStyle : beforStyle}
+                        onPress={() => navigation.navigate("Home")}
+                    >
+                        {navigation.isFocused() ? (
+                            <>
+                                <AntDesing name="home" size={20} color={"green"} />
+                                <TabBtnText>Home</TabBtnText>
+                            </>
+                        ) : (
+                            <AntDesing name="home" size={20} color={"#999"} />
+                        )}
+                    </TabButton>)
+            })} />
         <Screen name="Biology" component={HomeBio}/>
         <Screen name="English" component={HomeEng} />
         <Screen name="Maths" component={HomeMat} />

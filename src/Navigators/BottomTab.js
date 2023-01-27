@@ -12,6 +12,7 @@ import Exams from "../Screens/Exam/Exams";
 import Profile from "../Screens/Profile/Profile";
 import Contact from "../Screens/Contact/Contact";
 import { TabButton, TabBtnText } from "./Style/BottomTab";
+import { HomeStackScreens } from "../Navigators/Stack";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
@@ -19,8 +20,8 @@ const beforStyle = { backgroundColor: "#fff", width: "20%" } ;
 
 export default function BottomTab() {
     return (
-        <Navigator screenOptions={options} initialRouteName={"Home"}>
-            <Screen name="Home" component={Home} options={({ navigation }) => ({
+        <Navigator screenOptions={options} initialRouteName={"Stack"}>
+            {/* <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
@@ -35,7 +36,8 @@ export default function BottomTab() {
                             <AntDesing name="home" size={20} color={"#999"} />
                         )}
                     </TabButton>)
-            })} />
+            })} /> */}
+            <Screen name="Stack" component={HomeStackScreens}/>
             <Screen name="Recents" component={Recents} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
