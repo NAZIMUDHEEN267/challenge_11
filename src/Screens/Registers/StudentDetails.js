@@ -1,10 +1,10 @@
 import { View } from 'react-native'
 import React, { useState } from 'react'
-import BgImg from '../Components/BgImg'
-import Words from '../Components/Words'
-import BottomSheet from '../Components/BottomSheet';
-import TextInputBox from '../Components/TextInputBox';
-import { ButtonContainer, ButtonText } from '../Components/Button';
+import BgImg from '../../Components/BgImg'
+import Words from '../../Components/Words'
+import BottomSheet from '../../Components/BottomSheet';
+import TextInputBox from '../../Components/TextInputBox';
+import { ButtonContainer, ButtonText } from '../../Components/Button';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from "react-native-vector-icons/FontAwesome";
 

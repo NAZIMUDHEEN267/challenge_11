@@ -1,10 +1,10 @@
 import React from 'react';
-import BgImg from '../Components/BgImg';
-import BottomSheet from '../Components/BottomSheet';
+import BgImg from '../../Components/BgImg';
+import BottomSheet from '../../Components/BottomSheet';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from "react-native-vector-icons/FontAwesome";
-import Words from '../Components/Words'
-import { ButtonContainer, ButtonText } from '../Components/Button';
+import Words from '../../Components/Words'
+import { ButtonContainer, ButtonText } from '../../Components/Button';
 
 const SchoolBoard = ({navigation: {navigate}}) => {
 

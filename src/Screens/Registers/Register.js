@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import BottomSheet from '../Components/BottomSheet';
-import Words from '../Components/Words';
-import BgImg from '../Components/BgImg';
-import { ButtonContainer, ButtonText } from '../Components/Button';
+import BottomSheet from '../../Components/BottomSheet';
+import Words from '../../Components/Words';
+import BgImg from '../../Components/BgImg';
+import { ButtonContainer, ButtonText } from '../../Components/Button';
 
 export class Register extends Component {
 

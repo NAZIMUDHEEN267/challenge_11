@@ -1,15 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import AntDesing from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Material from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Fontisto from "react-native-vector-icons/Fontisto";
 
-import Home from "../Screens/BottomTab/Home";
-import Recents from "../Screens/BottomTab/Recents";
-import Exams from "../Screens/BottomTab/Exams";
-import Profile from "../Screens/BottomTab/Profile";
-import Contact from "../Screens/BottomTab/Contact";
+import Home from "../Screens/Home/Home";
+import Recents from "../Screens/Recent/Recents";
+import Exams from "../Screens/Exam/Exams";
+import Profile from "../Screens/Profile/Profile";
+import Contact from "../Screens/Contact/Contact";
 import { TabButton, TabBtnText } from "./Style/BottomTab";
 
 const { Navigator, Screen } = createBottomTabNavigator();

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Description, Headline, Image, Button } from "./Styles/AppTour";
 import Icon from "react-native-vector-icons/AntDesign";
-import ShareImg from "../Assets/Images/share.jpg";
-import LarnImg from "../Assets/Images/learn.jpg";
-import KidsImg from "../Assets/Images/kids.jpg";
-import PageImg from "../Assets/Images/fullscreen.jpg";
-import TitlePageImg from "../Assets/Images/title.jpg";
+import ShareImg from "../../Assets/Images/share.jpg";
+import LarnImg from "../../Assets/Images/learn.jpg";
+import KidsImg from "../../Assets/Images/kids.jpg";
+import PageImg from "../../Assets/Images/fullscreen.jpg";
+import TitlePageImg from "../../Assets/Images/title.jpg";
 
 const Share = ({ navigation: { navigate } }) => (
     <Container>

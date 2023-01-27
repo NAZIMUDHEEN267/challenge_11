@@ -7,11 +7,11 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from "react-native";
-import BottomSheet from '../Components/BottomSheet';
-import BgImg from '../Components/BgImg';
-import Words from '../Components/Words';
+import BottomSheet from '../../Components/BottomSheet';
+import BgImg from '../../Components/BgImg';
+import Words from '../../Components/Words';
 import OTPInput from './OtpInput';
-import { ButtonContainer, ButtonText } from '../Components/Button';
+import { ButtonContainer, ButtonText } from '../../Components/Button';
 
 function Otp({ navigation: { navigate } }) {
 

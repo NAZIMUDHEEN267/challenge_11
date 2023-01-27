@@ -61,4 +61,5 @@ export const BtnText = styled.Text`
 
 export const Section = styled.View`
     padding-vertical: 12px;
+    width: 100%;
 `;

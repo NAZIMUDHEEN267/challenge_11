@@ -78,6 +78,7 @@ const Home = () => {
             snapToInterval={100}
             decelerationRate='fast'
             showsHorizontalScrollIndicator={false}
+            bounces
           >
             {
                 subArray
@@ -94,6 +95,37 @@ const Home = () => {
                   } else {
                     return (
                       <View style={{width: 20}} key={String(i)}/>
+                    )
+                  }
+                })
+            }
+          </ScrollView>
+        </Section>
+
+        {/* scrolling video section */}
+        <Section>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            snapToInterval={100}
+            decelerationRate='fast'
+            showsHorizontalScrollIndicator={false}
+          >
+            {
+              subArray
+                .map((subject, i) => {
+                  if (typeof subject === "string") {
+                    return (
+                      (
+                        <LineBtn key={String(i)}>
+                          <Entypo name="controller-record" size={25} color="#00C458" />
+                          <BtnText>{subject}</BtnText>
+                        </LineBtn>
+                      )
+                    )
+                  } else {
+                    return (
+                      <View style={{ width: 20 }} key={String(i)} />
                     )
                   }
                 })

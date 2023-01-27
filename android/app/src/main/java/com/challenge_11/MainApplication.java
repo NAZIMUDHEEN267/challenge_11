@@ -1,5 +1,6 @@
 package com.challenge_11;
 
+// import com.brentvatne.react.ReactVideoPackage;
 import android.app.Application;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -18,6 +19,13 @@ public class MainApplication extends Application implements ReactApplication {
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
+
+        // @Override
+        // protected List<ReactPackage> getPackages() {
+        //   return Arrays.asList(
+        //       new MainReactPackage(),
+        //       new ReactVideoPackage());
+        // }
 
         @Override
         protected List<ReactPackage> getPackages() {
