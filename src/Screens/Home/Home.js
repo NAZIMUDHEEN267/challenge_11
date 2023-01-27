@@ -15,9 +15,16 @@ import {
   Row,
   Container,
   BtnText,
-  Section
+  Section,
+  Box,
+  SideText,
+  ProfileImg,
+  BoxHeadline,
+  BoxText,
+  BoxButton
 } from './Styles/Home';
 import { ScrollView } from 'react-native-gesture-handler';
+import data from './data';
 
 const Home = ({ navigation }) => {
 
@@ -31,7 +38,7 @@ const Home = ({ navigation }) => {
   };
 
   return (
-    <View>
+    <ScrollView>
       {/* navbar */}
       <Nav>
         <Row>
@@ -105,6 +112,9 @@ const Home = ({ navigation }) => {
 
         {/* scrolling video section */}
         <Section>
+
+        <SideText>Recent Courses</SideText>
+
           <ScrollView
             horizontal
             pagingEnabled
@@ -138,8 +148,40 @@ const Home = ({ navigation }) => {
           </ScrollView>
         </Section>
 
+        {/* box section */}
+        <Section>
+         <ScrollView horizontal>
+              <Box style={{ marginRight: 20, width: width * .6 }}>
+                <ProfileImg source={data.Teacher_1} resizeMode={"center"} />
+                <BoxHeadline>
+                  Target live classes
+                </BoxHeadline>
+                <BoxText>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
+                </BoxText>
+
+                <BoxButton>
+                  <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
+                </BoxButton>
+              </Box>
+
+            <Box style={{ width: width * .6 }}>
+                <ProfileImg source={data.Teacher_2} resizeMode={"center"} />
+                <BoxHeadline>
+                  Available free online counseling classes
+                </BoxHeadline>
+                <BoxText>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
+                </BoxText>
+
+                <BoxButton>
+                  <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
+                </BoxButton>
+              </Box>
+         </ScrollView>
+        </Section>
       </Container>
-    </View>
+    </ScrollView>
   )
 }
 

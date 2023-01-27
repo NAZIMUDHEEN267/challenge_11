@@ -6,7 +6,8 @@ import CheVideo from  "../../Assets/Videos/Chemistry.mp4";
 import PhyVideo from  "../../Assets/Videos/Physics.mp4";
 import HisVideo from  "../../Assets/Videos/History.mp4";
 
-
+import Teacher_1 from "../../Assets/Images/teacher-1.jpg";
+import Teacher_2 from "../../Assets/Images/teacher-2.jpg"
 
 export default {
   subArray: [
@@ -38,5 +39,7 @@ export default {
     PhyVideo,
     0,
     HisVideo
-  ]
+  ],
+  Teacher_1,
+  Teacher_2
 }

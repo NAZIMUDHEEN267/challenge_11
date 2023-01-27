@@ -31,7 +31,7 @@ export const Image = styled.Image`
     margin-left: 15px;
 `;
 
-export const MenuBar = styled.TouchableOpacity `
+export const MenuBar = styled.TouchableOpacity`
     width: 50px;
     height: 50px;
     border-width: 1px;
@@ -62,4 +62,50 @@ export const BtnText = styled.Text`
 export const Section = styled.View`
     padding-vertical: 12px;
     width: 100%;
+`;
+
+export const SideText = styled.Text`
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+    text-align: left;
+    margin-bottom: 10px;
+`;
+
+export const Box = styled.View`
+    padding: 20px;
+    justify-content: flex-start;
+    background-color: #002333;
+    border-radius: 5px;
+`;
+
+export const ProfileImg = styled.Image`
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-vertical: 5px;
+`;
+
+export const BoxHeadline = styled.Text`
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    margin-vertical: 5px;
+`;
+
+export const BoxText = styled.Text`
+    font-size: 13px;
+    color: #999;
+    font-weight: 500;
+    margin-vertical: 5px;
+`;
+
+export const BoxButton = styled.TouchableOpacity`
+    margin-top: 8px;
+    border-radius: 5px;
+    background-color: #00C458;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 50px;
 `;
