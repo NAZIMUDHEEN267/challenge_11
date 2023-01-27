@@ -1,7 +1,8 @@
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
+import { useState, useRef } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
-import Video from "react-native-video";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Video from "react-native-video";
 import Fontawesome from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from 'react-native-select-dropdown';
 import CompanyLogo from "../../Assets/Images/logo.png";
@@ -26,9 +27,23 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import data from './data';
 
+// get screen width
+const { width } = Dimensions.get("screen");
+
 const Home = ({ navigation }) => {
 
-  const { width } = Dimensions.get("screen");
+  // states for videos
+  const [isPause, setIsPause] = useState([
+    { "0": false },
+    { "2": false },
+    { "4": false },
+    { "6": false },
+    { "8": false },
+    { "10": false },
+    { "12": false }
+  ]);
+
+  const videoRef = useRef();
 
   const timeGreeting = function () {
     const hrs = new Date().getHours;
@@ -113,7 +128,7 @@ const Home = ({ navigation }) => {
         {/* scrolling video section */}
         <Section>
 
-        <SideText>Recent Courses</SideText>
+          <SideText>Recent Courses</SideText>
 
           <ScrollView
             horizontal
@@ -126,16 +141,42 @@ const Home = ({ navigation }) => {
               dataObj.videos
                 .map((link, i) => {
                   if (link !== 0) {
+
+                    let itemIndex = i;
                     return (
                       (
-                        <Video
-                          source={link}
-                          style={{ width: width * .59, height: 130, backgroundColor: "yellow" }}
-                          paused={false}
-                          repeat
-                          key={i}
-                          muted={false}
-                        />
+                        <View style={{ width: width * .59 }} key={i}>
+                          <Video
+                            source={link}
+                            style={{ width: "100%", height: 130, backgroundColor: "#111" }}
+                            paused={isPause[i/2][String(i)]}
+                            muted={false}
+                            repeat
+                          />
+
+                          <TouchableOpacity  style={{
+                            backgroundColor: "#5b615d",
+                            position: "absolute", 
+                            top: "40%", 
+                            left: "40%",
+                            padding: 2,
+                            borderRadius: 5 
+                            }} onPress={() => setIsPause((isPause) => isPause.map((obj, index) => {
+                                  if(itemIndex/2 === index) {
+                                    console.log(
+                                      { [String(index * 2)]: !obj[String(index * 2)] }
+                                    )
+                                    return { [String(index * 2)]: !obj[String(index * 2)] }
+                                  }
+                                  return obj;
+                            }))}>
+                            <AntDesign
+                              name={isPause[i/2][String(i)] ? "playcircleo" : "pausecircleo"}
+                              color={"#fff"}
+                              size={30}
+                            />
+                          </TouchableOpacity>
+                        </View>
                       )
                     )
                   } else {
@@ -150,35 +191,35 @@ const Home = ({ navigation }) => {
 
         {/* box section */}
         <Section>
-         <ScrollView horizontal>
-              <Box style={{ marginRight: 20, width: width * .6 }}>
-                <ProfileImg source={data.Teacher_1} resizeMode={"center"} />
-                <BoxHeadline>
-                  Target live classes
-                </BoxHeadline>
-                <BoxText>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
-                </BoxText>
+          <ScrollView horizontal>
+            <Box style={{ marginRight: 20, width: width * .6 }}>
+              <ProfileImg source={data.Teacher_1} resizeMode={"center"} />
+              <BoxHeadline>
+                Target live classes
+              </BoxHeadline>
+              <BoxText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
+              </BoxText>
 
-                <BoxButton>
-                  <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
-                </BoxButton>
-              </Box>
+              <BoxButton>
+                <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
+              </BoxButton>
+            </Box>
 
             <Box style={{ width: width * .6 }}>
-                <ProfileImg source={data.Teacher_2} resizeMode={"center"} />
-                <BoxHeadline>
-                  Available free online counseling classes
-                </BoxHeadline>
-                <BoxText>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
-                </BoxText>
+              <ProfileImg source={data.Teacher_2} resizeMode={"center"} />
+              <BoxHeadline>
+                Available free online counseling classes
+              </BoxHeadline>
+              <BoxText>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae praesentium aperiam minus ducimus quis modi, facere earum facilis voluptates, commodi voluptatibus quia beatae quidem quo pariatur nihil tempore doloremque.
+              </BoxText>
 
-                <BoxButton>
-                  <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
-                </BoxButton>
-              </Box>
-         </ScrollView>
+              <BoxButton>
+                <Text style={{ color: "#fff", fontWeight: "600" }}>Book a free class</Text>
+              </BoxButton>
+            </Box>
+          </ScrollView>
         </Section>
       </Container>
     </ScrollView>
