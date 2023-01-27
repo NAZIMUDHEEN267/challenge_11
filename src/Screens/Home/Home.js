@@ -163,9 +163,6 @@ const Home = ({ navigation }) => {
                             borderRadius: 5 
                             }} onPress={() => setIsPause((isPause) => isPause.map((obj, index) => {
                                   if(itemIndex/2 === index) {
-                                    console.log(
-                                      { [String(index * 2)]: !obj[String(index * 2)] }
-                                    )
                                     return { [String(index * 2)]: !obj[String(index * 2)] }
                                   }
                                   return obj;
