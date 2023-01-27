@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native';
-import { useRef } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
+import Video from "react-native-video";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Fontawesome from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from 'react-native-select-dropdown';
 import CompanyLogo from "../../Assets/Images/logo.png";
+import dataObj from "./data";
+
 import {
   Nav,
   Image,
@@ -17,7 +19,7 @@ import {
 } from './Styles/Home';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
 
   const timeGreeting = function () {
     const hrs = new Date().getHours;
@@ -25,8 +27,6 @@ const Home = ({navigation}) => {
     else if (hrs > 12 && hrs < 17) return "Good after noon";
     else return "Good evening"
   };
-
-  const subArray = ["Biology", 0,"English", 0,"Maths", 0,"It", 0,"Chemist", 0,"Physics", 0,"History"];
 
   return (
     <View>
@@ -80,8 +80,8 @@ const Home = ({navigation}) => {
             decelerationRate='fast'
             showsHorizontalScrollIndicator={false}
           >
-            {
-              subArray
+            { 
+            dataObj.subArray
                 .map((subject, i) => {
                   if (typeof subject === "string") {
                     return (
@@ -97,9 +97,11 @@ const Home = ({navigation}) => {
                       <View style={{ width: 20 }} key={String(i)} />
                     )
                   }
-                })
+                }) 
             }
           </ScrollView>
+
+
         </Section>
 
         {/* scrolling button section */}

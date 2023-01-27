@@ -16,12 +16,12 @@ import { HomeStackScreens } from "../Navigators/Stack";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
-const beforStyle = { backgroundColor: "#fff", width: "20%" } ;
+const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
 export default function BottomTab() {
     return (
-        <Navigator screenOptions={options} initialRouteName={"Stack"}>
-            {/* <Screen name="Home" component={Home} options={({ navigation }) => ({
+        <Navigator screenOptions={options}>
+            <Screen name="Stack" component={HomeStackScreens} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
@@ -36,8 +36,7 @@ export default function BottomTab() {
                             <AntDesing name="home" size={20} color={"#999"} />
                         )}
                     </TabButton>)
-            })} /> */}
-            <Screen name="Stack" component={HomeStackScreens}/>
+            })} />
             <Screen name="Recents" component={Recents} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
@@ -119,5 +118,5 @@ const options = {
         elevation: 5,
         paddingHorizontal: 10
     },
-    lazy: true 
+    lazy: true
 };
