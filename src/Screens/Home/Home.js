@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, Dimensions } from 'react-native';
 import Entypo from "react-native-vector-icons/Entypo";
 import Video from "react-native-video";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -21,6 +21,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const Home = ({ navigation }) => {
 
+  const { width } = Dimensions.get("screen");
+
   const timeGreeting = function () {
     const hrs = new Date().getHours;
     if (hrs < 12) return "Good morning";
@@ -30,7 +32,6 @@ const Home = ({ navigation }) => {
 
   return (
     <View>
-
       {/* navbar */}
       <Nav>
         <Row>
@@ -71,7 +72,7 @@ const Home = ({ navigation }) => {
           />
         </Section>
 
-        {/* scrolling video section */}
+        {/* scroll button section */}
         <Section>
           <ScrollView
             horizontal
@@ -80,8 +81,8 @@ const Home = ({ navigation }) => {
             decelerationRate='fast'
             showsHorizontalScrollIndicator={false}
           >
-            { 
-            dataObj.subArray
+            {
+              dataObj.subArray
                 .map((subject, i) => {
                   if (typeof subject === "string") {
                     return (
@@ -97,14 +98,45 @@ const Home = ({ navigation }) => {
                       <View style={{ width: 20 }} key={String(i)} />
                     )
                   }
-                }) 
+                })
             }
           </ScrollView>
-
-
         </Section>
 
-        {/* scrolling button section */}
+        {/* scrolling video section */}
+        <Section>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            snapToInterval={100}
+            decelerationRate='fast'
+            showsHorizontalScrollIndicator={false}
+          >
+            {
+              dataObj.videos
+                .map((link, i) => {
+                  if (link !== 0) {
+                    return (
+                      (
+                        <Video
+                          source={link}
+                          style={{ width: width * .59, height: 130, backgroundColor: "yellow" }}
+                          paused={false}
+                          repeat
+                          key={i}
+                          muted={false}
+                        />
+                      )
+                    )
+                  } else {
+                    return (
+                      <View style={{ width: 20 }} key={String(i)} />
+                    )
+                  }
+                })
+            }
+          </ScrollView>
+        </Section>
 
       </Container>
     </View>
