@@ -73,6 +73,19 @@ export const SideText = styled.Text`
     margin-bottom: 10px;
 `;
 
+export const VideoText = styled.Text`
+    color: #fff;
+    font-size: 13px;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    z-index: 1;
+    padding: 2px;
+    border-radius: 2px;
+    backgroundColor: rgba(0,0,0,.5);
+    letter-spacing: 1.2px;
+`;
+
 export const Box = styled.View`
     height: 420px;
     padding: 20px;

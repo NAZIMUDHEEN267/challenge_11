@@ -22,7 +22,8 @@ import {
   ProfileImg,
   BoxHeadline,
   BoxText,
-  BoxButton
+  BoxButton,
+  VideoText
 } from './Styles/Home';
 import { ScrollView } from 'react-native-gesture-handler';
 import data from './data';
@@ -146,31 +147,36 @@ const Home = ({ navigation }) => {
                     return (
                       (
                         <View style={{ width: width * .59 }} key={i}>
+
+                          <VideoText>
+                            {dataObj.subArray[itemIndex]}
+                          </VideoText>
+
                           <Video
                             source={link}
                             style={{ width: "100%", height: 130, backgroundColor: "#111" }}
-                            paused={isPause[i/2][String(i)]}
+                            paused={isPause[i / 2][String(i)]}
                             muted={false}
                             repeat
                           />
 
-                          <TouchableOpacity  style={{
-                            backgroundColor: "#5b615d",
-                            position: "absolute", 
-                            top: "40%", 
+                          <TouchableOpacity style={{
+                            backgroundColor: "rgba(0, 0, 0, .5)",
+                            position: "absolute",
+                            top: "40%",
                             left: "40%",
                             padding: 2,
-                            borderRadius: 5 
-                            }} onPress={() => setIsPause((isPause) => isPause.map((obj, index) => {
-                                  if(itemIndex/2 === index) {
-                                    return { [String(index * 2)]: !obj[String(index * 2)] }
-                                  }
-                                  return obj;
-                            }))}
+                            borderRadius: 5
+                          }} onPress={() => setIsPause((isPause) => isPause.map((obj, index) => {
+                            if (itemIndex / 2 === index) {
+                              return { [String(index * 2)]: !obj[String(index * 2)] }
+                            }
+                            return obj;
+                          }))}
                             activeOpacity={.9}
-                            >
+                          >
                             <AntDesign
-                              name={isPause[i/2][String(i)] ? "playcircleo" : "pausecircleo"}
+                              name={isPause[i / 2][String(i)] ? "playcircleo" : "pausecircleo"}
                               color={"#fff"}
                               size={30}
                             />
