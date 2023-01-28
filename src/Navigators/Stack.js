@@ -20,15 +20,14 @@ import HomeChem from "../Screens/Home/Subjects/Chemistry";
 import HomePhy from "../Screens/Home/Subjects/Physics";
 import HomeHis from "../Screens/Home/Subjects/History";
 
-
-import BottomTab from "./BottomTab" // navigator component
+import Drawer from "./Drawer" // navigator
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 // main stack navigator
 export function StackNavigator() {
     return (
-        <Navigator screenOptions={{headerShown: false}} initialRouteName={"BottomTab"}>
+        <Navigator screenOptions={{headerShown: false}} initialRouteName={"Drawer"}>
             <Screen name="Register" component={Register}/>
             <Screen name="OTP" component={Otp} />
             <Screen name="StudentDetails" component={StudentDetails} />
@@ -38,7 +37,7 @@ export function StackNavigator() {
             <Screen name="Kids" component={Kids} />
             <Screen name="Page" component={Page} />
             <Screen name="TitlePage" component={TitlePage}/>
-            <Screen name="BottomTab" component={BottomTab}/>
+            <Screen name="Drawer" component={Drawer} />
         </Navigator>
     )
 };
