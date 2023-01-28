@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
-const History = () => {
-  return (
-    <View>
-      <Text>History</Text>
-    </View>
-  )
+const History = ({ navigation, route }) => {
+  const subject = route.name;
+  return <Template subject={subject} goBack={navigation.goBack} />
 }
 
-export default History
+export default History;

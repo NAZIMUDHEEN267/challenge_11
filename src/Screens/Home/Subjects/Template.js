@@ -11,19 +11,19 @@ import {
 } from "./Styles/Templete";
 
 
-export default function Template() {
+export default function Template(props) {
     return (
        <View>
             {/* subject nav */}
             <ContainerTop>
-                <NavMenu>
+                <NavMenu onPress={props.goBack}>
                     <FontAwesome name="angle-left" size={20} color="green"/>
                 </NavMenu>
                 
                 {/* subject text */}
                 <View>
                     <SubjectText>
-                        Biology
+                        {props.subject}
                     </SubjectText>
                     <Row>
                         <Row>

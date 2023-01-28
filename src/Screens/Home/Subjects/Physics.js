@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
-const Physics = () => {
-  return (
-    <View>
-      <Text>Physics</Text>
-    </View>
-  )
+const Physics = ({ navigation, route }) => {
+  const subject = route.name;
+  return <Template subject={subject} goBack={navigation.goBack} />
 }
 
-export default Physics
+export default Physics;

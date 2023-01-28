@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
-const Chemistry = () => {
-  return (
-    <View>
-      <Text>Chemistry</Text>
-    </View>
-  )
+const Chemistry = ({ navigation, route }) => {
+  const subject = route.name;
+  return <Template subject={subject} goBack={navigation.goBack} />
 }
 
-export default Chemistry
+export default Chemistry;

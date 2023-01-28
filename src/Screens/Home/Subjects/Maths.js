@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
-const Maths = () => {
-  return (
-    <View>
-      <Text>Maths</Text>
-    </View>
-  )
+const Maths = ({ navigation, route }) => {
+  const subject = route.name;
+  return <Template subject={subject} goBack={navigation.goBack} />
 }
 
-export default Maths
+export default Maths;

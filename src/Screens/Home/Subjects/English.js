@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
-const English = () => {
-  return (
-    <View>
-      <Text>English</Text>
-    </View>
-  )
+const English = ({ navigation, route }) => {
+  const subject = route.name;
+  return <Template subject={subject} goBack={navigation.goBack} />
 }
 
-export default English
+export default English;

@@ -16,7 +16,6 @@ export const NavMenu = styled.TouchableOpacity`
     justify-content: center;
     border-width: 2px;
     border-color: #e5e5e5;
-    margin-left: 20px;
     border-radius: 5px;
 `;
 
