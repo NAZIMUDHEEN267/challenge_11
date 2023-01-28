@@ -20,7 +20,7 @@ const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
 export default function BottomTab({navigate}) {
     return (
-        <Navigator screenOptions={options}>
+        <Navigator screenOptions={options} initialRouteName={"Profile"}>
             <Screen name="Stack" component={HomeStackScreens} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
