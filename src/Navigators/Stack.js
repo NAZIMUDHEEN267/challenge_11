@@ -45,7 +45,7 @@ export function StackNavigator() {
 // home stack navigator
 export const HomeStackScreens = ({ navigation }) => {
     return (
-    <Navigator screenOptions={{headerShown: false}}>
+    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Biology"}>
         <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton

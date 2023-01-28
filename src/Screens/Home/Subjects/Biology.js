@@ -1,12 +1,7 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Template from "./Template";
 
 const Biology = ({navigation}) => {
-  return (
-    <View>
-      <Text>Biology</Text>
-    </View>
-  )
+  return <Template />
 }
 
 export default Biology
