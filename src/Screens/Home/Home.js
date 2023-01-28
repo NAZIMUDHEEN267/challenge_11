@@ -166,7 +166,9 @@ const Home = ({ navigation }) => {
                                     return { [String(index * 2)]: !obj[String(index * 2)] }
                                   }
                                   return obj;
-                            }))}>
+                            }))}
+                            activeOpacity={.9}
+                            >
                             <AntDesign
                               name={isPause[i/2][String(i)] ? "playcircleo" : "pausecircleo"}
                               color={"#fff"}

@@ -73,8 +73,9 @@ export const SideText = styled.Text`
 `;
 
 export const Box = styled.View`
+    height: 420px;
     padding: 20px;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: #002333;
     border-radius: 5px;
 `;
