@@ -33,8 +33,8 @@ export const Image = styled.Image`
 `;
 
 export const MenuBar = styled.TouchableOpacity`
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-width: 1px;
     border-color: #00C458;
     border-radius: 5px;

@@ -1,12 +1,10 @@
 import {
     createDrawerNavigator,
     DrawerContentScrollView,
-    DrawerItemList
 } from "@react-navigation/drawer";
 import { Dimensions } from "react-native";
 import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Register from "../Screens/Registers/Register";
 
 import BottomTab from "./BottomTab" // navigator component
 import {
@@ -27,10 +25,9 @@ const { height } = Dimensions.get("screen");
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-const DrawerScreens = () => (
+const DrawerScreens = (props) => (
     <Navigator screenOptions={{ headerShown: false }} drawerContent={DrawerContents}>
         <Screen name="BottomTab" component={BottomTab} />
-        <Screen name="Register" component={Register} />
     </Navigator>
 );
 
@@ -46,13 +43,13 @@ const links = [
     "Log out"
 ];
 
-function DrawerContents(props) {
+function DrawerContents({navigation}) {
     return (
-        <DrawerContentScrollView onLayout={() => props.navigation.openDrawer()} style={{ backgroundColor: "#002333" }}>
+        <DrawerContentScrollView style={{ backgroundColor: "#002333" }}>
 
             {/* header */}
             <DrawerHeader height={height}>
-                <CloseBtn onPress={() => props.navigation.closeDrawer()}>
+                <CloseBtn onPress={() => navigation.closeDrawer()}>
                     <Icon name="close" color="#00C458" size={20} />
                 </CloseBtn>
 

@@ -18,14 +18,14 @@ const { Navigator, Screen } = createBottomTabNavigator();
 const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
 const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
-export default function BottomTab() {
+export default function BottomTab({navigate}) {
     return (
         <Navigator screenOptions={options}>
             <Screen name="Stack" component={HomeStackScreens} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
-                        onPress={() => navigation.navigate("Home")}
+                        onPress={() => navigation.navigate("Home", {open: navigate.openDrawer})}
                     >
                         {navigation.isFocused() ? (
                             <>

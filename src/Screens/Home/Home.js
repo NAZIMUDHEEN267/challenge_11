@@ -1,5 +1,5 @@
 import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Video from "react-native-video";
@@ -44,8 +44,6 @@ const Home = ({ navigation }) => {
     { "12": false }
   ]);
 
-  const videoRef = useRef();
-
   const timeGreeting = function () {
     const hrs = new Date().getHours;
     if (hrs < 12) return "Good morning";
@@ -58,10 +56,10 @@ const Home = ({ navigation }) => {
       {/* navbar */}
       <Nav>
         <Row>
-          <MenuBar>
-            <AntDesign name={"appstore1"} size={25} color={"#00C458"} />
+          <MenuBar onPress={() => navigation.openDrawer()}>
+            <AntDesign name={"appstore1"} size={20} color={"#00C458"} />
           </MenuBar>
-          <Image source={CompanyLogo} />
+          <Image source={CompanyLogo} resizeMode={"center"}/>
         </Row>
 
         <LineBtn style={{ borderColor: "#00C458" }}>
