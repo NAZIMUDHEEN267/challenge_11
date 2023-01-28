@@ -43,7 +43,8 @@ export function StackNavigator() {
 };
 
 // home stack navigator
-export const HomeStackScreens = ({ navigation }) => (
+export const HomeStackScreens = ({ navigation }) => {
+    return (
     <Navigator screenOptions={{headerShown: false}}>
         <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
@@ -69,4 +70,4 @@ export const HomeStackScreens = ({ navigation }) => (
         <Screen name="Physics" component={HomePhy} />
         <Screen name="History" component={HomeHis} />
     </Navigator>
-);
+)}

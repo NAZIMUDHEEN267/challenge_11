@@ -32,7 +32,6 @@ import data from './data';
 const { width } = Dimensions.get("screen");
 
 const Home = ({ navigation }) => {
-
   // states for videos
   const [isPause, setIsPause] = useState([
     { "0": false },
@@ -56,7 +55,7 @@ const Home = ({ navigation }) => {
       {/* navbar */}
       <Nav>
         <Row>
-          <MenuBar onPress={() => navigation.openDrawer()}>
+          <MenuBar onPress={navigation.openDrawer}>
             <AntDesign name={"appstore1"} size={20} color={"#00C458"} />
           </MenuBar>
           <Image source={CompanyLogo} resizeMode={"center"}/>

@@ -25,7 +25,7 @@ export default function BottomTab({navigate}) {
                 tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
-                        onPress={() => navigation.navigate("Home", {open: navigate.openDrawer})}
+                        onPress={() => navigation.navigate("Home")}
                     >
                         {navigation.isFocused() ? (
                             <>
