@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 import AntDesing from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
@@ -18,10 +19,26 @@ const { Navigator, Screen } = createBottomTabNavigator();
 const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
 const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
-export default function BottomTab({navigate}) {
+export default function BottomTab({ navigation }) {
     return (
-        <Navigator screenOptions={options}>
-            <Screen name="Stack" component={HomeStackScreens} options={({ navigation }) => ({
+        <Navigator screenOptions={({navigation, route}) => { 
+            const getRoute = getFocusedRouteNameFromRoute(navigation.getState().routes[0]);
+
+            const checkRoute = ["Biology", "English", "Maths", "It", "Chemist", "Physics", "History"]
+            .filter((item) => getRoute === item ? item : false);
+            console.log(checkRoute, route)
+
+            if(checkRoute) {
+                return {
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarStyle: {display: "none"}
+                } 
+            } else {
+                return options
+            }
+            }}>
+            <Screen name="Stack" component={HomeStackScreens} options={({ navigation, route }) => ({
                 tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
@@ -120,3 +137,14 @@ const options = {
     },
     lazy: true
 };
+
+function isVisible(route) {
+    const getRoute = getFocusedRouteNameFromRoute(route);
+
+    console.log(getRoute, route);
+    if(getRoute === "Biology") {
+        return {
+           display: "none"
+        }
+    }
+}

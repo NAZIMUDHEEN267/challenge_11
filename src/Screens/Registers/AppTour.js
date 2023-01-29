@@ -61,7 +61,7 @@ const TitlePage = ({ navigation: { navigate } }) => (
             elevation: 2,
             borderColor: "r#000"
         }}
-            onPress={() => navigate("BottomTab")}>
+            onPress={() => navigate("Drawer")}>
             <Headline>Done</Headline>
         </Button>
     </Container>

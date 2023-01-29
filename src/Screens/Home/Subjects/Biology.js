@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Template from "./Template";
 
 const Biology = ({navigation, route}) => {

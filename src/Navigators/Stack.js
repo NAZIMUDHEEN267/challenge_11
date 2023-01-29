@@ -26,14 +26,14 @@ import Drawer from "./Drawer" // navigator
 import TopTab from "./TopTab"; //navigator
 
 import Header from "../Screens/Home/Subjects/Chapter/Header";
-import { Children } from "react";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
 // main stack navigator
-export function StackNavigator() {
+const  StackNavigator = () => {
     return (
-        <Navigator screenOptions={{headerShown: false}} initialRouteName={"Drawer"}>
+        <Navigator screenOptions={{headerShown: false}} 
+        initialRouteName={"TitlePage"} >
             <Screen name="Register" component={Register}/>
             <Screen name="OTP" component={Otp} />
             <Screen name="StudentDetails" component={StudentDetails} />
@@ -49,9 +49,9 @@ export function StackNavigator() {
 };
 
 // home stack navigator
-export const HomeStackScreens = ({ navigation }) => {
+const HomeStackScreens = (props) => {
     return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Stream"}>
+    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Home"}>
         <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
@@ -68,7 +68,7 @@ export const HomeStackScreens = ({ navigation }) => {
                         )}
                     </TabButton>)
             })} />
-        <Screen name="Biology" component={HomeBio}/>
+        <Screen name="Biology" component={HomeBio} />
         <Screen name="English" component={HomeEng} />
         <Screen name="Maths" component={HomeMat} />
         <Screen name="It" component={HomeIt} />
@@ -79,6 +79,8 @@ export const HomeStackScreens = ({ navigation }) => {
             header: Header,
             headerShown: true,
             }}/>
-        <Screen name="Stream" component={Stream}/>
+        <Screen name="Stream" component={Stream} />
     </Navigator>
 )};
+
+export {StackNavigator, HomeStackScreens}
