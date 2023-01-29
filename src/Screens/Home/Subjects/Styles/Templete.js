@@ -48,3 +48,12 @@ export const Row = styled.View`
     align-items: center;
     margin-right: 10px;
 `;
+
+export const ChapterBtn = styled.TouchableOpacity`
+    width: 100%;
+    height: 20%;
+    border-radius: 5px;
+    elevation: 5;
+    background-color: #fff;
+    padding: 10px;
+`;

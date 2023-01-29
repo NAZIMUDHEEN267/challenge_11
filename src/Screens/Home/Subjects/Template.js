@@ -29,7 +29,6 @@ export default function Template(props) {
     //     return () => {}
     // }, []);
 
-
     return (
        <View>
             {/* subject nav */}
@@ -58,6 +57,9 @@ export default function Template(props) {
 
             {/* buttons for video */}
             <ProfileContainer>
+                <ChapterText onPress={() => props.nav("TopTab", { name: props.subject })}>
+
+                </ChapterText>
             </ProfileContainer>
        </View>
     )

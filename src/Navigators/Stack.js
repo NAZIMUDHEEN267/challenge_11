@@ -23,6 +23,9 @@ import HomeHis from "../Screens/Home/Subjects/History";
 import Drawer from "./Drawer" // navigator
 import TopTab from "./TopTab"; //navigator
 
+import Header from "../Screens/Home/Subjects/Chapter/Header";
+import { Children } from "react";
+
 const { Navigator, Screen } = createNativeStackNavigator();
 
 // main stack navigator
@@ -42,7 +45,6 @@ export function StackNavigator() {
         </Navigator>
     )
 };
-
 
 // home stack navigator
 export const HomeStackScreens = ({ navigation }) => {
@@ -71,6 +73,9 @@ export const HomeStackScreens = ({ navigation }) => {
         <Screen name="Chemist" component={HomeChem} />
         <Screen name="Physics" component={HomePhy} />
         <Screen name="History" component={HomeHis} />
-        <Screen name="TopTab" component={TopTab} options={{header: Head, headerShown: true}}/>
+        <Screen name="TopTab" component={TopTab} options={{
+            header: Header,
+            headerShown: true,
+            }}/>
     </Navigator>
 )}
