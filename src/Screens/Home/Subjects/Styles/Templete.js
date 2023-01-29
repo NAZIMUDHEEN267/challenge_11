@@ -10,8 +10,8 @@ export const ContainerTop = styled.View`
 `;
 
 export const NavMenu = styled.TouchableOpacity`
-    height: 30px;
-    width: 30px;
+    height: 60px;
+    width: 60px;
     align-items: center;
     justify-content: center;
     border-width: 2px;
@@ -56,4 +56,5 @@ export const ChapterBtn = styled.TouchableOpacity`
     elevation: 5;
     background-color: #fff;
     padding: 10px;
+    margin-bottom: 10px;
 `;

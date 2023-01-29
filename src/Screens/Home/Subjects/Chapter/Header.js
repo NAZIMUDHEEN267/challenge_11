@@ -1,28 +1,42 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import styled from 'styled-components/native';
+import Ionic from "react-native-vector-icons/Ionicons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-const {height} = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 
-const Header = ({route, navigation}) => {
-    console.log(route);
-  return (
-    <Container height={height}>
-        <Row>
-            <NavMenu onPress={navigation.goBack}>
-                  <FontAwesome name="angle-left" size={20} color="green" />
-            </NavMenu>
-            {/* <SubjectText>{route.params.name}</SubjectText> */}
-        </Row>
-    </Container>
-  )
+const Header = ({ route, navigation }) => {
+    return (
+        <Container height={height}>
+            <TopRow>
+                <NavMenu onPress={navigation.goBack}>
+                    <FontAwesome name="angle-left" size={25} color="green" />
+                </NavMenu>
+                {/* <SubjectText>{route.params.name}</SubjectText> */}
+            </TopRow>
+            <View>
+                <MainText>helkajdflkjasdlfkja</MainText>
+                <Row>
+                    <Row>
+                        <Ionic name="radio-button-on" size={12} color="#00C458" />
+                        <ChapterText>12 chapters</ChapterText>
+                    </Row>
+                    <Row>
+                        <Ionic name="radio-button-on" size={12} color="#00C458" />
+                        <ChapterText>124 Hours</ChapterText>
+                    </Row>
+                </Row>
+            </View>
+        </Container>
+    )
 }
 
 const Container = styled.View`
     height: ${props => parseInt(props.height * .3)}px;
     width: 100%;
     background-color: #00202F;
-    padding: 10px;
+    padding: 20px;
+    justify-content: space-between;
 `;
 
 const NavMenu = styled.TouchableOpacity`
@@ -42,12 +56,31 @@ const SubjectText = styled.Text`
     margin-bottom: 10px;
 `;
 
-const Row = styled.View`
+const TopRow = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-right: 10px;
     width: 60%;
+`;
+
+export const Row = styled.View`
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+`;
+
+const MainText = styled.Text`
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 10px;
+`;
+
+const ChapterText = styled.Text`
+    color: #00C458;
+    font-size: 13px;
 `;
 
 export default Header
