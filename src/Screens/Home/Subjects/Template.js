@@ -1,6 +1,8 @@
 import { View } from "react-native";
+import { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionic from "react-native-vector-icons/Ionicons";
+import {} from "./api";
 import {
     ChapterText,
     ContainerTop, 
@@ -10,8 +12,24 @@ import {
     Row
 } from "./Styles/Templete";
 
+import { imgApi, videoApi } from "../../../Api/api";
 
 export default function Template(props) {
+    const [imgData, setImgData] = useState([]);
+    const [videoData, setVideoData] = useState([]);
+
+    // useEffect(async () => {
+    //     const getImgData = await imgApi(props.subject);
+    //     const getVideoData = await videoApi(props.subject);
+
+
+    //     setImgData(imgData => [...imgData, getImgData]);
+    //     setVideoData(videoData => [...videoData, getVideoData]);
+        
+    //     return () => {}
+    // }, []);
+
+
     return (
        <View>
             {/* subject nav */}
