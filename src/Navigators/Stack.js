@@ -20,6 +20,8 @@ import HomeChem from "../Screens/Home/Subjects/Chemistry";
 import HomePhy from "../Screens/Home/Subjects/Physics";
 import HomeHis from "../Screens/Home/Subjects/History";
 
+import Stream from "../Screens/Home/Subjects/Chapter/Stream";
+
 import Drawer from "./Drawer" // navigator
 import TopTab from "./TopTab"; //navigator
 
@@ -49,7 +51,7 @@ export function StackNavigator() {
 // home stack navigator
 export const HomeStackScreens = ({ navigation }) => {
     return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName={"TopTab"}>
+    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Stream"}>
         <Screen name="Home" component={Home} options={({ navigation }) => ({
                 tabBarButton: (props) => (
                     <TabButton
@@ -77,5 +79,6 @@ export const HomeStackScreens = ({ navigation }) => {
             header: Header,
             headerShown: true,
             }}/>
+        <Screen name="Stream" component={Stream}/>
     </Navigator>
-)}
+)};

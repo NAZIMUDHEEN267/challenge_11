@@ -2,22 +2,26 @@ import { View, Text, ScrollView, Dimensions } from 'react-native'
 import styled from 'styled-components/native';
 import Ionic from "react-native-vector-icons/Ionicons";
 
-const {height} = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 
-const Video = () => {
+const Video = (props) => {
+
   return (
-    <ScrollView style={{padding: 10}}>
-      <VideoItem height={height}>
-        <VideoImg resizeMode={"cover"} source={require("../../../../Assets/Images/share.jpg")}/>
+    <ScrollView style={{ padding: 10 }}>
+      <VideoItem
+        height={height} activeOpacity={.7}
+        onPress={() => props.navigation.navigate("Stream", { videoLink: "../../../../Assets/Videos/History.mp4" })}
+      >
+        <VideoImg resizeMode={"cover"} source={require("../../../../Assets/Images/share.jpg")} />
         <VideoText>somealdkfsdfa</VideoText>
-        <Row style={{marginLeft: 8}}>
+        <Row style={{ marginLeft: 8 }}>
           <Row>
             <Ionic name="radio-button-on" size={12} color="#999" />
-            <ChapterText>12 chapters</ChapterText>
+            <ChapterText>1 chapters</ChapterText>
           </Row>
           <Row>
             <Ionic name="radio-button-on" size={12} color="#999" />
-            <ChapterText>124 Hours</ChapterText>
+            <ChapterText>1 Part</ChapterText>
           </Row>
         </Row>
       </VideoItem>
@@ -25,7 +29,7 @@ const Video = () => {
   )
 }
 
-const VideoItem = styled.View`
+const VideoItem = styled.TouchableOpacity`
   height: ${props => props.height / 3.5}px;
   width: 100%;
   border-radius: 5px;

@@ -3,15 +3,15 @@ import styled from "styled-components/native";
 export const ContainerTop = styled.View`
     height: 30%;
     width: 100%;
-    background-color: #002333;
+    background-color: yellow;
     padding: 20px;
     padding-bottom: 50px;
     justify-content: space-between;
 `;
 
 export const NavMenu = styled.TouchableOpacity`
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     align-items: center;
     justify-content: center;
     border-width: 2px;

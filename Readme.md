@@ -5,6 +5,8 @@ This is a plain "Education App". Created for my course challenge. It has 4 regis
 I learned How to make a wrapper component and that was an "aaha" moment for me, understand how useEffect works with this amazing [Dmitri Pavlutin](https://dmitripavlutin.com/react-useeffect-explanation/) article.
 The best thing is i founded a good styleSheet library ***styled components***. Below this page I shared good stuff source links those helped me this project journey.
 
+## Used Technologies
+
 ## Preview
 
 ## Helped sources
