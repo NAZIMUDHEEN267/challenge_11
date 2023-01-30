@@ -1,11 +1,12 @@
-import { View, Text, ScrollView, Dimensions } from 'react-native'
+import { ScrollView, Dimensions } from 'react-native'
 import styled from 'styled-components/native';
 import Ionic from "react-native-vector-icons/Ionicons";
+import { videoApi } from "../api";
 
 const { height } = Dimensions.get("screen");
 
 const Video = (props) => {
-
+  
   return (
     <ScrollView style={{ padding: 10 }}>
       <VideoItem

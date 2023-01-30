@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const ContainerTop = styled.View`
     height: 30%;
     width: 100%;
-    background-color: yellow;
+    background-color: #002333;
     padding: 20px;
     padding-bottom: 50px;
     justify-content: space-between;
@@ -15,7 +15,7 @@ export const NavMenu = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     border-width: 2px;
-    border-color: #e5e5e5;
+    border-color: #00C458;
     border-radius: 5px;
 `;
 
@@ -23,7 +23,7 @@ export const ProfileContainer = styled.View`
     height: 60%;
     width: 90%;
     align-self: center;
-    background-color: #fff;
+    background-color: #e5e5e5;
     margin-top: -8%;
     margin-bottom: 110px;
     elevation: 5;
@@ -51,10 +51,9 @@ export const Row = styled.View`
 
 export const ChapterBtn = styled.TouchableOpacity`
     width: 100%;
-    height: 20%;
     border-radius: 5px;
     elevation: 5;
     background-color: #fff;
-    padding: 10px;
+    padding: 30px;
     margin-bottom: 10px;
 `;

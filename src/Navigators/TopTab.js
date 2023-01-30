@@ -7,7 +7,7 @@ import { Text } from "react-native";
 
 const {Navigator, Screen} = createMaterialTopTabNavigator();
 
-export default function () {
+export default function ({route}) {
     return (
         <Navigator screenOptions={{
             tabBarIndicatorContainerStyle: { backgroundColor: "#002333"},

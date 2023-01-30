@@ -52,7 +52,7 @@ const  StackNavigator = () => {
 const HomeStackScreens = () => {
 
     return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Biology"}>
+    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Home"}>
         <Screen name="Home" component={Home} options={({ navigation }) => {
 
             return (

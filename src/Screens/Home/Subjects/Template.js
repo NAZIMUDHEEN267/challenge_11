@@ -1,8 +1,8 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionic from "react-native-vector-icons/Ionicons";
-import { videoApi, imgApi } from "./api";
+import { videoApi } from "./api";
 import {
     ChapterText,
     ContainerTop,
@@ -12,36 +12,31 @@ import {
     Row,
     ChapterBtn
 } from "./Styles/Templete";
+import { ScrollView } from "react-native-gesture-handler";
 
-export default class Template extends React.Component {
-    constructor(props) {
-        super(props);
+export default function Template(props) {
+    const [videoData, setVideoData] = useState([]);
 
-        this.state = {
-            imgData: [],
-            videoData: []
-        }
-    }
+    useEffect(() => {
+       async function apiCall(){
+           const videoResponce = await videoApi(props.subject);
+           setVideoData(videoData => [...videoData, ...videoResponce]);
+       }
+       apiCall();
+    }, []);
 
-    async componentDidMount() {
-        const imgResponce = await imgApi(this.props.subject);
-        const videoResponce = await videoApi(this.props.subject);
-
-    }
-
-    render() {
     return (
-        <View>
+        <View style={{backgroundColor: "#fff"}}>
             {/* subject nav */}
             <ContainerTop>
-                <NavMenu onPress={this.props.goBack}>
+                <NavMenu onPress={props.goBack}>
                     <FontAwesome name="angle-left" size={20} color="green" />
                 </NavMenu>
 
                 {/* subject text */}
                 <View>
                     <SubjectText>
-                        {this.props.subject}
+                        {props.subject}
                     </SubjectText>
                     <Row>
                         <Row>
@@ -58,13 +53,27 @@ export default class Template extends React.Component {
 
             {/* buttons for video */}
             <ProfileContainer>
-                <ChapterBtn onPress={() => this.props.nav("TopTab", { name: props.subject })}>
-                    <ChapterText>
-                        aksdfjal;kdfja'sdf
-                        asdfa;sldfkjasdfkjasdfkjas;dfkljas;dflk
-                    </ChapterText>
-                </ChapterBtn>
+                <ScrollView>
+                    {
+                        videoData.map((item, i) => {
+                            {/* console.log(item.video.search(/video/)) */ }
+                            const getVideoName = item.video.slice(29,);
+                            const findNumber = getVideoName.search(/[0-9]/);
+                            const name = getVideoName.slice(0, findNumber - 1);
+
+                            return (
+                                <ChapterBtn key={i} onPress={() => props.nav("TopTab", {name: props.subject, source: item, chapter: name})}>
+                                    <Text style={{
+                                        textAlign: "center",
+                                        fontWeight: "600",
+                                        fontSize: 15
+                                    }}>{name}</Text>
+                                </ChapterBtn>
+                            )
+                        })
+                    }
+                </ScrollView>
             </ProfileContainer>
         </View>
-    )};
+    );
 }
