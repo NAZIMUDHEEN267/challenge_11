@@ -6,7 +6,7 @@ import { videoApi } from "../api";
 const { height } = Dimensions.get("screen");
 
 const Video = (props) => {
-  
+  console.log(props.route);
   return (
     <ScrollView style={{ padding: 10 }}>
       <VideoItem
