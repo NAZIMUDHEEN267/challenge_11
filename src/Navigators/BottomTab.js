@@ -19,25 +19,11 @@ const { Navigator, Screen } = createBottomTabNavigator();
 const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal: 10 };
 const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
+
 export default function BottomTab({ navigation }) {
+
     return (
-        <Navigator screenOptions={({navigation, route}) => { 
-            const getRoute = getFocusedRouteNameFromRoute(navigation.getState().routes[0]);
-
-            const checkRoute = ["Biology", "English", "Maths", "It", "Chemist", "Physics", "History"]
-            .filter((item) => getRoute === item ? item : false);
-            console.log(checkRoute, route)
-
-            if(checkRoute) {
-                return {
-                    headerShown: false,
-                    tabBarShowLabel: false,
-                    tabBarStyle: {display: "none"}
-                } 
-            } else {
-                return options
-            }
-            }}>
+        <Navigator screenOptions={options}>
             <Screen name="Stack" component={HomeStackScreens} options={({ navigation, route }) => ({
                 tabBarButton: (props) => (
                     <TabButton
@@ -142,9 +128,9 @@ function isVisible(route) {
     const getRoute = getFocusedRouteNameFromRoute(route);
 
     console.log(getRoute, route);
-    if(getRoute === "Biology") {
+    if (getRoute === "Biology") {
         return {
-           display: "none"
+            display: "none"
         }
     }
 }

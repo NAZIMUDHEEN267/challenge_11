@@ -5,9 +5,9 @@ import { StackNavigator } from "./src/Navigators/Stack";
 
 function App() {
   return (
-   <NavigationContainer>
-      <StackNavigator />
-   </NavigationContainer>
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
   )
 }
 

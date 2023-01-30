@@ -33,8 +33,8 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const  StackNavigator = () => {
     return (
         <Navigator screenOptions={{headerShown: false}} 
-        initialRouteName={"TitlePage"} >
-            <Screen name="Register" component={Register}/>
+        initialRouteName={"Drawer"} >
+            <Screen name="Register" component={Register} />
             <Screen name="OTP" component={Otp} />
             <Screen name="StudentDetails" component={StudentDetails} />
             <Screen name="SchoolBoard" component={SchoolBoard} />
@@ -49,11 +49,14 @@ const  StackNavigator = () => {
 };
 
 // home stack navigator
-const HomeStackScreens = (props) => {
+const HomeStackScreens = () => {
+
     return (
-    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Home"}>
-        <Screen name="Home" component={Home} options={({ navigation }) => ({
-                tabBarButton: (props) => (
+    <Navigator screenOptions={{headerShown: false}} initialRouteName={"Biology"}>
+        <Screen name="Home" component={Home} options={({ navigation }) => {
+
+            return (
+                { tabBarButton: (props) => (
                     <TabButton
                         style={navigation.isFocused() ? afterStyle : beforStyle}
                         onPress={() => navigation.navigate("Home")}
@@ -67,7 +70,7 @@ const HomeStackScreens = (props) => {
                             <AntDesing name="home" size={20} color={"#999"} />
                         )}
                     </TabButton>)
-            })} />
+                 }) }} />
         <Screen name="Biology" component={HomeBio} />
         <Screen name="English" component={HomeEng} />
         <Screen name="Maths" component={HomeMat} />

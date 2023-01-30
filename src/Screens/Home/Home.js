@@ -1,5 +1,5 @@
 import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Video from "react-native-video";
@@ -50,6 +50,16 @@ const Home = ({ navigation }) => {
     else return "Good evening"
   };
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity>
+          <Text>hello</Text>
+        </TouchableOpacity>
+      )
+    })
+  })
+
   return (
     <ScrollView>
       {/* navbar */}
@@ -58,7 +68,7 @@ const Home = ({ navigation }) => {
           <MenuBar onPress={navigation.openDrawer}>
             <AntDesign name={"appstore1"} size={20} color={"#00C458"} />
           </MenuBar>
-          <Image source={CompanyLogo} resizeMode={"center"}/>
+          <Image source={CompanyLogo} resizeMode={"center"} />
         </Row>
 
         <LineBtn style={{ borderColor: "#00C458" }}>

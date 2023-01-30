@@ -1,8 +1,8 @@
 import { View } from "react-native";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionic from "react-native-vector-icons/Ionicons";
-import { } from "./api";
+import { videoApi, imgApi } from "./api";
 import {
     ChapterText,
     ContainerTop,
@@ -13,35 +13,35 @@ import {
     ChapterBtn
 } from "./Styles/Templete";
 
-import { imgApi, videoApi } from "../../../Api/api";
+export default class Template extends React.Component {
+    constructor(props) {
+        super(props);
 
-export default function Template(props) {
-    const [imgData, setImgData] = useState([]);
-    const [videoData, setVideoData] = useState([]);
+        this.state = {
+            imgData: [],
+            videoData: []
+        }
+    }
 
-    // useEffect(async () => {
-    //     const getImgData = await imgApi(props.subject);
-    //     const getVideoData = await videoApi(props.subject);
+    async componentDidMount() {
+        const imgResponce = await imgApi(this.props.subject);
+        const videoResponce = await videoApi(this.props.subject);
 
+    }
 
-    //     setImgData(imgData => [...imgData, getImgData]);
-    //     setVideoData(videoData => [...videoData, getVideoData]);
-
-    //     return () => {}
-    // }, []);
-
+    render() {
     return (
         <View>
             {/* subject nav */}
             <ContainerTop>
-                <NavMenu onPress={props.goBack}>
+                <NavMenu onPress={this.props.goBack}>
                     <FontAwesome name="angle-left" size={20} color="green" />
                 </NavMenu>
 
                 {/* subject text */}
                 <View>
                     <SubjectText>
-                        {props.subject}
+                        {this.props.subject}
                     </SubjectText>
                     <Row>
                         <Row>
@@ -58,7 +58,7 @@ export default function Template(props) {
 
             {/* buttons for video */}
             <ProfileContainer>
-                <ChapterBtn onPress={() => props.nav("TopTab", { name: props.subject })}>
+                <ChapterBtn onPress={() => this.props.nav("TopTab", { name: props.subject })}>
                     <ChapterText>
                         aksdfjal;kdfja'sdf
                         asdfa;sldfkjasdfkjasdfkjas;dfkljas;dflk
@@ -66,5 +66,5 @@ export default function Template(props) {
                 </ChapterBtn>
             </ProfileContainer>
         </View>
-    )
+    )};
 }

@@ -2,27 +2,40 @@
 import axios from "axios";
 
 
-function apiCall(searchItem) {
+async function imgApi(searchItem) {
     const imgUrl = `https://api.pexels.com/v1/search?query=${searchItem}`;
-    const videoUrl = `https://api.pexels.com/videos/search?query=${searchItem}`;
 
-    const dataArray = [];
+    try {
 
-    fetch(imgUrl,{
-        method: "GET",
-        headers: { 
-            Accept: "application/json",
-            Authorization: "KrfYIY24vk1KWGfzLfa82Z5t10bjhxJC5OUU9Rqn2C2ARr0zN0VW5LkV"
-        }
-    }).then(data => data.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-    // const videoJson = await axios.get(videoUrl, { Authorization: "KrfYIY24vk1KWGfzLfa82Z5t10bjhxJC5OUU9Rqn2C2ARr0zN0VW5LkV" });
+        const jsonData = await fetch(imgUrl, {
+            headers:
+                { Authorization: "KrfYIY24vk1KWGfzLfa82Z5t10bjhxJC5OUU9Rqn2C2ARr0zN0VW5LkV" }
+        });
 
-    // const videoData = await JSON.parse(videoJson);
+        const data = await jsonData.json();
 
-    // dataArray.push(videoData);
-    return dataArray;
+        return data;
+
+    } catch (error) {
+        return error;
+    }
 }
 
-export default apiCall;
+async function videoApi(searchItem) {
+    const videoUrl = `https://api.pexels.com/videos/search?query=${searchItem}`;
+
+    try {
+        const jsonData = await fetch(videoUrl, {
+            headers:
+                { Authorization: "KrfYIY24vk1KWGfzLfa82Z5t10bjhxJC5OUU9Rqn2C2ARr0zN0VW5LkV" }
+        });
+
+        const data = await jsonData.json();
+
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
+
+export { imgApi, videoApi };
