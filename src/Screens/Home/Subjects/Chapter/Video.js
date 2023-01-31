@@ -1,31 +1,34 @@
 import { ScrollView, Dimensions } from 'react-native'
 import styled from 'styled-components/native';
 import Ionic from "react-native-vector-icons/Ionicons";
-import { videoApi } from "../api";
 
 const { height } = Dimensions.get("screen");
 
-const Video = (props) => {
-  console.log(props.route);
+const Video = ({route: {params : {details}}, navigation}) => {
   return (
     <ScrollView style={{ padding: 10 }}>
-      <VideoItem
-        height={height} activeOpacity={.7}
-        onPress={() => props.navigation.navigate("Stream", { videoLink: "../../../../Assets/Videos/History.mp4" })}
-      >
-        <VideoImg resizeMode={"cover"} source={require("../../../../Assets/Images/share.jpg")} />
-        <VideoText>somealdkfsdfa</VideoText>
-        <Row style={{ marginLeft: 8 }}>
-          <Row>
-            <Ionic name="radio-button-on" size={12} color="#999" />
-            <ChapterText>1 chapters</ChapterText>
-          </Row>
-          <Row>
-            <Ionic name="radio-button-on" size={12} color="#999" />
-            <ChapterText>1 Part</ChapterText>
-          </Row>
-        </Row>
-      </VideoItem>
+      {
+        Array(6).fill(0).map((_, i) => (
+          <VideoItem
+            key={i}
+            height={height} activeOpacity={.7}
+            onPress={() => navigation.navigate("Stream", {details})}
+          >
+            <VideoImg resizeMode={"cover"} source={{ uri: details.source.img }} />
+            <VideoText>{details.chapter}</VideoText>
+            <Row style={{ marginLeft: 8 }}>
+              <Row>
+                <Ionic name="radio-button-on" size={12} color="#999" />
+                <ChapterText>1 chapters</ChapterText>
+              </Row>
+              <Row>
+                <Ionic name="radio-button-on" size={12} color="#999" />
+                <ChapterText> Part {i + 1}</ChapterText>
+              </Row>
+            </Row>
+          </VideoItem>
+        ))
+      }
     </ScrollView>
   )
 }

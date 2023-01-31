@@ -2,14 +2,21 @@ import { View } from "react-native";
 import styled from "styled-components/native";
 import AntiDesign from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
+import Video from "react-native-video";
 import { ContainerTop } from "../Styles/Templete";
 
 const Stream = ({ route }) => {
+    const path = route.params.details;
+
     return (
         <View style={{ height: "100%", width: "100%" }}>
             {/* video container */}
-            <ContainerTop>
-
+            <ContainerTop style={{ alignItems: "center", justifyContent: "center" }}>
+                <Video
+                    source={require("../../../../Assets/Videos/Biology.mp4")}
+                    style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+                    controls={true}
+                />
             </ContainerTop>
 
             {/* body */}
@@ -18,19 +25,20 @@ const Stream = ({ route }) => {
                 {/* video text */}
                 <TextContainer style={{ borderBottomWidth: 1, borderBottomColor: "rgba(194, 172, 171, .3)" }}>
                     <VideoText>
-                        kalsjdf;laksjdf;laksjdf;alskdfj
+                        {path.chapter.split("-").join(" ")}
                     </VideoText>
-                    <Icon style={{flex: .2}}>
+                    <Icon style={{ flex: .2 }}>
                         <AntiDesign name="clouddownloado" color="#999" size={33} />
                     </Icon>
                 </TextContainer>
 
                 {/* change video */}
-                <TextContainer style={{justifyContent: "space-between",
+                <TextContainer style={{
+                    justifyContent: "space-between",
                     borderBottomWidth: 1, borderBottomColor: "rgba(194, 172, 171, .3)"
                 }}>
                     <Icon>
-                        <AntiDesign name="arrowleft" color="#999" size={23}/>
+                        <AntiDesign name="arrowleft" color="#999" size={23} />
                         <ChapterText style={{ color: "#999" }}> Preview</ChapterText>
                     </Icon>
                     <Row>
@@ -38,7 +46,7 @@ const Stream = ({ route }) => {
                         <ChapterText> Part 1</ChapterText>
                     </Row>
                     <Icon>
-                        <ChapterText style={{color: "#999"}}>Next </ChapterText>
+                        <ChapterText style={{ color: "#999" }}>Next </ChapterText>
                         <AntiDesign name="arrowright" color="#999" size={23} />
                     </Icon>
                 </TextContainer>

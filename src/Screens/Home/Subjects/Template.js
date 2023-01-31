@@ -56,18 +56,17 @@ export default function Template(props) {
                 <ScrollView>
                     {
                         videoData.map((item, i) => {
-                            {/* console.log(item.video.search(/video/)) */ }
                             const getVideoName = item.video.slice(29,);
                             const findNumber = getVideoName.search(/[0-9]/);
-                            const name = getVideoName.slice(0, findNumber - 1);
+                            const textName = getVideoName.slice(0, findNumber - 1);
 
                             return (
-                                <ChapterBtn key={i} onPress={() => props.nav("TopTab", {name: props.subject, source: item, chapter: name})}>
+                                <ChapterBtn key={i} onPress={() => props.nav("TopTab", {name: props.subject, source: item, chapter: textName})}>
                                     <Text style={{
                                         textAlign: "center",
                                         fontWeight: "600",
                                         fontSize: 15
-                                    }}>{name}</Text>
+                                    }}>{textName}</Text>
                                 </ChapterBtn>
                             )
                         })
