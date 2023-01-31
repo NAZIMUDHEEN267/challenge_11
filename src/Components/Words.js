@@ -9,13 +9,15 @@ export class Words extends Component {
 
     this.main = this.props.main;
     this.sub = this.props.sub || "";
+    this.num = this.props.num || ""
   }
 
   render() {
     return (
       <View style={{position: "absolute",  top: "30%", width: "100%"}}>
-        <Text style={[styles.bold, styles.text]}>{this.main}</Text>
-        <Text style={[styles.light, styles.text]}>{this.sub}</Text>
+        <Text style={[styles.bold]}>{this.main}</Text>
+        <Text style={[styles.light]}>{this.sub}</Text>
+        <Text style={[styles.bold]}>+91{this.num}</Text>
       </View>
     )
   }
@@ -25,15 +27,14 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "500",
     fontSize: 16,
-    color: "#222"
+    color: "#222",
+    textAlign: "center"
   },
   light: {
     fontSize: 13,
     fontWeight: "500",
+    textAlign: "center",
     color: "#999"
-  },
-  text: {
-    textAlign: "center"
   }
 })
 

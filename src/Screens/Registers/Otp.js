@@ -13,8 +13,9 @@ import Words from '../../Components/Words';
 import OTPInput from './OtpInput';
 import { ButtonContainer, ButtonText } from '../../Components/Button';
 
-function Otp({ navigation: { navigate } }) {
+function Otp({ navigation: { navigate }, route }) {
 
+    console.log(route.params.num);
     const [otpCode, setOtpCode] = useState("");
     const [isPinReady, setIsPinReady] = useState(false);
     const maxCodeLength = 6;
@@ -27,6 +28,7 @@ function Otp({ navigation: { navigate } }) {
                 <Words
                     main="Verificatioin code"
                     sub="Please enter verification code that sent to"
+                    num={route.params.num}
                 />
                 {/* bottom sheet */}
                 <BottomSheet>

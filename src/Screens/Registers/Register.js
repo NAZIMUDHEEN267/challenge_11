@@ -22,10 +22,8 @@ export class Register extends Component {
 
     }
     
-    addNumber = function (item) {
-        this.checkLength = this.state.numbers.length + 1 === this.maximum;
-        // this.setState({});
-        console.log(this.state.numbers);
+    addNumber = function (num) {
+       this.setState({numbers: num})
     }
 
     render() {
@@ -58,7 +56,7 @@ export class Register extends Component {
                     </View>
 
                     {/* button */}
-                    <ButtonContainer onPress={() => this.navigate("OTP")}
+                    <ButtonContainer onPress={() => this.navigate("OTP", {num: this.state.numbers})}
                         >
                         <ButtonText>Send OTP</ButtonText>
                     </ButtonContainer>
