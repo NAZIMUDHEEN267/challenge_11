@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { getFocusedRouteNameFromRoute, getStateFromPath } from "@react-navigation/native";
 
 import AntDesing from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
@@ -21,9 +21,26 @@ const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
 
 export default function BottomTab({ navigation }) {
-
     return (
-        <Navigator screenOptions={options}>
+        <Navigator screenOptions={({navigation}) => {
+            const index = navigation.getState().index;
+            const child = getFocusedRouteNameFromRoute(navigation.getState().routes[0]);
+
+            // console.log(getStateFromPath(navigation.getState().routes[0]))
+
+            if(index >= 0 && child === "Home") {
+                return options
+            } 
+            return {
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarStyle: {
+                    elevation: -1,
+                    height: 0,
+                    width: 0
+                    }
+            }
+        }}>
             <Screen name="Stack" component={HomeStackScreens} options={({ navigation, route }) => ({
                 tabBarButton: (props) => (
                     <TabButton

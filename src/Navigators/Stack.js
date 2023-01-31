@@ -55,9 +55,8 @@ const StackNavigator = () => {
 
 // home stack navigator
 const HomeStackScreens = () => {
-
     return (
-        <Navigator screenOptions={{ headerShown: false }} initialRouteName={"Home"}>
+        <Navigator screenOptions={{headerShown: false}} initialRouteName={"Home"}>
             <Screen name="Home" component={Home} options={({ navigation }) => {
 
                 return (

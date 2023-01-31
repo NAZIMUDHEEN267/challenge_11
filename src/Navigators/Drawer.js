@@ -74,7 +74,9 @@ function DrawerContents({navigation}) {
                             return (
                                 <LinkContainer key={i}>
                                     <LinkBox style={{ borderColor: "crimson" }} />
-                                    <LinkText style={{ color: "crimson" }}>{link}</LinkText>
+                                    <LinkText style={{ color: "crimson" }}
+                                    onPress={() => navigation.navigate("Register")}
+                                    >{link}</LinkText>
                                 </LinkContainer>
                             )
                         }

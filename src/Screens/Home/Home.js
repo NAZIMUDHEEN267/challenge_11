@@ -1,5 +1,5 @@
 import { View, Text, Dimensions, TouchableOpacity } from 'react-native';
-import { useState, useLayoutEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Video from "react-native-video";
@@ -32,6 +32,7 @@ import data from './data';
 const { width } = Dimensions.get("screen");
 
 const Home = ({ navigation }) => {
+  
   // states for videos
   const [isPause, setIsPause] = useState([
     { "0": false },
@@ -49,16 +50,6 @@ const Home = ({ navigation }) => {
     else if (hrs > 12 && hrs < 17) return "Good after noon";
     else return "Good evening"
   };
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity>
-          <Text>hello</Text>
-        </TouchableOpacity>
-      )
-    })
-  })
 
   return (
     <ScrollView>

@@ -1,9 +1,10 @@
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, W } from "react-native";
 import styled from "styled-components/native";
 import AntiDesign from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
 import Video from "react-native-video";
 import { ContainerTop } from "../Styles/Templete";
+import WebView from "react-native-webview";
 
 const Stream = ({ route }) => {
     const path = route.params.details;
@@ -11,21 +12,17 @@ const Stream = ({ route }) => {
     return (
         <View style={{ height: "100%", width: "100%" }}>
             {/* video container */}
-            <ContainerTop style={{ alignItems: "center", justifyContent: "center" }}>
-                <Video
-                    source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-buckets/sample/BigBuckBunny.mp4"}}
-                    style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
-                    onBuffer={() => <ActivityIndicator animating={true} size={20} color={"red"}/>}
-                    controls={true}
+                <WebView 
+                    source={{uri: path.source.video}}
+                    style={{height: "100%", width: "100%"}}
                 />
-            </ContainerTop>
 
             {/* body */}
             <ContainerBody>
 
                 {/* video text */}
                 <TextContainer style={{ borderBottomWidth: 1, borderBottomColor: "rgba(194, 172, 171, .3)" }}>
-                    <VideoText>
+                    <VideoText style={{marginBottom: 10}}>
                         {path.chapter.split("-").join(" ")}
                     </VideoText>
                     <Icon style={{ flex: .2 }}>
@@ -36,7 +33,9 @@ const Stream = ({ route }) => {
                 {/* change video */}
                 <TextContainer style={{
                     justifyContent: "space-between",
-                    borderBottomWidth: 1, borderBottomColor: "rgba(194, 172, 171, .3)"
+                    borderBottomWidth: 1, 
+                    borderBottomColor: "rgba(194, 172, 171, .3)",
+                    height: 70
                 }}>
                     <Icon>
                         <AntiDesign name="arrowleft" color="#999" size={23} />
@@ -57,14 +56,13 @@ const Stream = ({ route }) => {
 }
 
 const ContainerBody = styled.View`
-    height: 70%;
+    height: 50%;
     width: 100%;
     background-color: #002333;
     padding: 10px;
 `;
 
 const TextContainer = styled.View`
-    height: 50px;
     width: 100%;
     flex-direction: row;
     align-items: center;
