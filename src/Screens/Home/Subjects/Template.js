@@ -53,7 +53,7 @@ export default function Template(props) {
 
             {/* buttons for video */}
             <ProfileContainer>
-                <ScrollView showsVerticalScrollIndicator={false}>
+                <ScrollView>
                     {
                         videoData.map((item, i) => {
                             const getVideoName = item.video.slice(29,);

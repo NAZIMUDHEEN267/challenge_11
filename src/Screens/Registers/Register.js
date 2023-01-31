@@ -13,17 +13,15 @@ export class Register extends Component {
         this.state = {
             color: "grey",
             width: 0,
-            numbers: ""
+            numbers: "",
         }
 
-        this.maximum = 10;
         this.navigate = this.props.navigation.navigate;
         this.addNumber = this.addNumber.bind(this);
-
     }
-    
+
     addNumber = function (num) {
-       this.setState({numbers: num})
+        this.setState({ numbers:  num });
     }
 
     render() {
@@ -46,7 +44,7 @@ export class Register extends Component {
                         {/* Input box */}
                         <TextInput
                             keyboardType='phone-pad'
-                            maxLength={this.maximum}
+                            maxLength={10}
                             placeholder="Mobile number"
                             style={[styles.num, { borderWidth: this.state.width, borderColor: this.state.color }]}
                             placeholderTextColor="#999"
@@ -56,8 +54,9 @@ export class Register extends Component {
                     </View>
 
                     {/* button */}
-                    <ButtonContainer onPress={() => this.navigate("OTP", {num: "+91" + this.state.numbers})}
-                        >
+                    <ButtonContainer
+                        onPress={() => this.navigate("OTP", { num: this.state.numbers.length > 5 ? "+91" + this.state.numbers : ""})}
+                    >
                         <ButtonText>Send OTP</ButtonText>
                     </ButtonContainer>
                 </BottomSheet>
