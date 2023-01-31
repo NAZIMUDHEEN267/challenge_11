@@ -25,11 +25,12 @@ const { height } = Dimensions.get("screen");
 
 const { Navigator, Screen } = createDrawerNavigator();
 
-const DrawerScreens = (props) => (
+const DrawerScreens = () => {
+    return (
     <Navigator screenOptions={{ headerShown: false }} drawerContent={DrawerContents}>
-        <Screen name="BottomTab" component={BottomTab} />
+        <Screen name="BottomTab" component={BottomTab}/>
     </Navigator>
-);
+)};
 
 
 const links = [
@@ -43,7 +44,7 @@ const links = [
     "Log out"
 ];
 
-function DrawerContents({navigation}) {
+function DrawerContents({navigation, route}) {
     return (
         <DrawerContentScrollView style={{ backgroundColor: "#002333" }}>
 

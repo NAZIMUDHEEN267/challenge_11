@@ -45,7 +45,7 @@ const VideoItem = styled.TouchableOpacity`
 const VideoImg = styled.Image`
   height: 70%;
   width: 100%;
-  background-color: yellow;
+  background-color: #222;
 `;
 
 const VideoText = styled.Text`

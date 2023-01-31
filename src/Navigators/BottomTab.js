@@ -20,13 +20,14 @@ const afterStyle = { backgroundColor: "#9ff5b6", width: "22%", paddingHorizontal
 const beforStyle = { backgroundColor: "#fff", width: "20%" };
 
 
-export default function BottomTab({ navigation }) {
+export default function BottomTab() {
     return (
-        <Navigator screenOptions={({navigation}) => {
+        <Navigator screenOptions={({navigation, route}) => {
             const index = navigation.getState().index;
-            const child = getFocusedRouteNameFromRoute(navigation.getState().routes[0]);
+            let child = getFocusedRouteNameFromRoute(navigation.getState().routes[0]);
 
             // console.log(getStateFromPath(navigation.getState().routes[0]))
+            child = !child ? "Home" : child;
 
             if(index >= 0 && child === "Home") {
                 return options

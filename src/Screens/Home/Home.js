@@ -32,16 +32,15 @@ import data from './data';
 const { width } = Dimensions.get("screen");
 
 const Home = ({ navigation }) => {
-  
   // states for videos
   const [isPause, setIsPause] = useState([
-    { "0": false },
-    { "2": false },
-    { "4": false },
-    { "6": false },
-    { "8": false },
-    { "10": false },
-    { "12": false }
+    { "0": true },
+    { "2": true },
+    { "4": true },
+    { "6": true },
+    { "8": true },
+    { "10": true },
+    { "12": true }
   ]);
 
   const timeGreeting = function () {

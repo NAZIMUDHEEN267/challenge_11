@@ -3,8 +3,8 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <View>
-      <Text>Contact</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ fontSize: 34 }}>Contact</Text>
     </View>
   )
 }

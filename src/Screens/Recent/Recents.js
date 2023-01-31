@@ -3,8 +3,8 @@ import React from 'react'
 
 const Recents = () => {
   return (
-    <View>
-      <Text>Recents</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ fontSize: 34 }}>Recents</Text>
     </View>
   )
 }

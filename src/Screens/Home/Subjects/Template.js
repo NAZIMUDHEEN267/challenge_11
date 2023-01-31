@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionic from "react-native-vector-icons/Ionicons";
-import { videoApi } from "./api";
+import { videoApi } from "../../../Api/api";
 import {
     ChapterText,
     ContainerTop,
@@ -53,7 +53,7 @@ export default function Template(props) {
 
             {/* buttons for video */}
             <ProfileContainer>
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     {
                         videoData.map((item, i) => {
                             const getVideoName = item.video.slice(29,);

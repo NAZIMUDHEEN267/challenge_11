@@ -3,8 +3,8 @@ import React from 'react'
 
 const Exams = () => {
   return (
-    <View>
-      <Text>Exams</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ fontSize: 34 }}>Exams</Text>
     </View>
   )
 }
