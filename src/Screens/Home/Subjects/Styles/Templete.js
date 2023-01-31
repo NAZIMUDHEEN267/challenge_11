@@ -20,7 +20,7 @@ export const NavMenu = styled.TouchableOpacity`
 `;
 
 export const ProfileContainer = styled.View`
-    height: 60%;
+    height: 65%;
     width: 90%;
     align-self: center;
     background-color: #e5e5e5;
