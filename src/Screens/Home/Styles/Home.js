@@ -27,9 +27,11 @@ export const Row = styled.View`
 `;
 
 export const Image = styled.Image`
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-left: 15px;
+    align-self: center;
+    margin-top: -15px;
 `;
 
 export const MenuBar = styled.TouchableOpacity`

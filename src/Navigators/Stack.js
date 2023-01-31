@@ -38,7 +38,7 @@ const TopTab = createMaterialTopTabNavigator();
 // main stack navigator
 const StackNavigator = () => {
     return (
-        <Navigator screenOptions={{ headerShown: false }}>
+        <Navigator screenOptions={{ headerShown: false }} initialRouteName={"Drawer"}>
             <Screen name="Register" component={Register} />
             <Screen name="OTP" component={Otp} />
             <Screen name="StudentDetails" component={StudentDetails} />
@@ -57,7 +57,7 @@ const StackNavigator = () => {
 const HomeStackScreens = () => {
 
     return (
-        <Navigator screenOptions={{ headerShown: false }}>
+        <Navigator screenOptions={{ headerShown: false }} initialRouteName={"Home"}>
             <Screen name="Home" component={Home} options={({ navigation }) => {
 
                 return (

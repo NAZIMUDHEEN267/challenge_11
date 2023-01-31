@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import AntiDesign from "react-native-vector-icons/AntDesign";
 import Ionic from "react-native-vector-icons/Ionicons";
@@ -13,8 +13,9 @@ const Stream = ({ route }) => {
             {/* video container */}
             <ContainerTop style={{ alignItems: "center", justifyContent: "center" }}>
                 <Video
-                    source={require("../../../../Assets/Videos/Biology.mp4")}
+                    source={{uri: "http://commondatastorage.googleapis.com/gtv-videos-buckets/sample/BigBuckBunny.mp4"}}
                     style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+                    onBuffer={() => <ActivityIndicator animating={true} size={20} color={"red"}/>}
                     controls={true}
                 />
             </ContainerTop>
