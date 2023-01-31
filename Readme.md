@@ -20,7 +20,7 @@ The best thing is i founded a good styleSheet library ***styled components***. B
 8. pexel api
 
 ## Preview
-![r]("https://github.com/NAZIMUDHEEN267/challenge_11/blob/main/src/Assets/Preview/preview_1.jpg")
+![]("https://github.com/NAZIMUDHEEN267/challenge_11/blob/main/src/Assets/Preview/preview_1.jpg")
 
 ## Helped sources
 1. [Learned How to create a wrapper component](https://www.digitalocean.com/community/tutorials/how-to-create-wrapper-components-in-react-with-props)
