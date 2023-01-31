@@ -55,9 +55,6 @@ export const UserDetails = styled.View`
 `;
 
 export const ProfileImg = styled.Image`
-    border-width: 3px;
-    border-color: #00C458;
-    border-radius: 50px;
     height: 60px;
     width: 60px;
     margin-right: 20px;

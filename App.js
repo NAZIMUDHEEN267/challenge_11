@@ -13,7 +13,7 @@ function App() {
   }
 
   useEffect(() => {
-    setTimeout(hideSplash, 4000);
+    setTimeout(hideSplash, 1000);
   }, [])
 
   const SplashScreen = (
@@ -46,7 +46,7 @@ const ChildSplash = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: yellow;
+  background-color: #062E40;
 `;
 
 const Image = styled.Image`
