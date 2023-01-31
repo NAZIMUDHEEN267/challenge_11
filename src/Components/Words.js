@@ -17,7 +17,7 @@ export class Words extends Component {
       <View style={{position: "absolute",  top: "30%", width: "100%"}}>
         <Text style={[styles.bold]}>{this.main}</Text>
         <Text style={[styles.light]}>{this.sub}</Text>
-        <Text style={[styles.bold]}>+91{this.num}</Text>
+        <Text style={[styles.bold]}>{this.num}</Text>
       </View>
     )
   }

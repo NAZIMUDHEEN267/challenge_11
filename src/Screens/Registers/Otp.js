@@ -15,7 +15,6 @@ import { ButtonContainer, ButtonText } from '../../Components/Button';
 
 function Otp({ navigation: { navigate }, route }) {
 
-    console.log(route.params.num);
     const [otpCode, setOtpCode] = useState("");
     const [isPinReady, setIsPinReady] = useState(false);
     const maxCodeLength = 6;

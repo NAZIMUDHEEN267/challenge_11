@@ -56,7 +56,7 @@ export class Register extends Component {
                     </View>
 
                     {/* button */}
-                    <ButtonContainer onPress={() => this.navigate("OTP", {num: this.state.numbers})}
+                    <ButtonContainer onPress={() => this.navigate("OTP", {num: "+91" + this.state.numbers})}
                         >
                         <ButtonText>Send OTP</ButtonText>
                     </ButtonContainer>
