@@ -21,7 +21,7 @@ The best thing is i founded a good styleSheet library ***styled components***. B
 
 ## Preview
 <img src="./src/Assets/Preview/preview_1.jpg" width="150">
-<div />
+<div style="margin-top: 10px;"/>
 <img src="./src/Assets/Preview/preview_2.jpg" width="150">
 <div />
 <img src="./src/Assets/Preview/preview_3.jpg" width="150">
