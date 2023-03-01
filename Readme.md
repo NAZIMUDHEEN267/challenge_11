@@ -3,7 +3,7 @@ This is a plain "Education App". Created for my course challenge. It has 4 regis
 
 ## What I learn!!
 I learned How to make a wrapper component and that was an "aaha" moment for me, understand how useEffect works with this amazing [Dmitri Pavlutin](https://dmitripavlutin.com/react-useeffect-explanation/) article.
-The best thing is i founded a good styleSheet library ***styled components***. Below this page I shared good stuff source links those helped me this project journey.The library react-native-video only support "mp4" format that's why I choose **webview** for video stream on subject pages, and Pexel api provides different size of videos and it's images that's nice for this project.
+The best thing is i founded a good styleSheet library ***styled components***. Below this page I shared good stuff source links those helped me this project journey.The library react-native-video only support "mp4" format that's why I choose **webview** for video stream on subject pages, and Pexel api provides different size of videos and it's images that's nice for this project
 
 ## Used Technologies
 1. react-navigation
